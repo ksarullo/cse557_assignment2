@@ -11,3 +11,11 @@
 
 Draw common routine and thickness/color of lines will depend on popularity
 
+
+
+
+
+Citations:
+https://codepen.io/lfrichter/pen/mQJJyB For the structure template
+https://getbootstrap.com/docs/4.1/getting-started/introduction/  Bootstrap Library
+
