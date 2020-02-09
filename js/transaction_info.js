@@ -29,12 +29,14 @@ d3.csv('data/cc_data.csv')
         var transaction_div = d3.select("#pills-analysis");
 
         // Create dropdown
+        var lastSelection = 0;
         var filter_div = d3.select("#pills-filter");
         var select = filter_div.append('select')
             .attr('class','select')
             .on('change',function() {
+                d3.select('[id="' + lastSelection + '-Transactions"]').style("display", "none");
                 selectValue = locations.indexOf(d3.select('select').property('value'));
-                console.log('[id=' + selectValue + '-Transactions]');
+                lastSelection = selectValue;
                 d3.select('[id="' + selectValue + '-Transactions"]').style("display", "block");
             })
             .selectAll('option')
@@ -125,6 +127,7 @@ d3.csv('data/cc_data.csv')
                     });
             });
         }
+        d3.select('[id="0-Transactions"]').style("display", "block");
     });
 
 
