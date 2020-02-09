@@ -62,3 +62,10 @@ a.bg-dark {
     background-color: #132644 !important;
 }
 
+
+
+path {
+    fill: black;
+    stroke: black;
+    stroke-width: .5px;
+  }
