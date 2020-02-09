@@ -1,44 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
     <title>Kronos A2</title>
-  </head>
-  <body>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/transaction_info.js"></script>
+</head>
 
+<body>
 
     <div class="container-fluid p-0">
-  
+
         <!-- Bootstrap row -->
         <div class="row" id="body-row">
             <!-- Sidebar; We create the tabs here -->
-            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
                 <!-- List of tabs in our sidebar-->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="pills-filter-tab" data-toggle="pill" href="#pills-filter" role="tab" aria-controls="pills-filter" aria-selected="true">Filter</a>
+                        <a class="nav-link active" id="pills-filter-tab" data-toggle="pill" href="#pills-filter"
+                            role="tab" aria-controls="pills-filter" aria-selected="true">Filter</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="pills-analysis-tab" data-toggle="pill" href="#pills-analysis" role="tab" aria-controls="pills-analysis" aria-selected="false">Analysis</a>
+                        <a class="nav-link" id="pills-analysis-tab" data-toggle="pill" href="#pills-analysis" role="tab"
+                            aria-controls="pills-analysis" aria-selected="false">Analysis</a>
                     </li>
-                  </ul>
+                </ul>
 
-                  <!-- The content of our tabs go in these divs -->
-                  <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-filter" role="tabpanel" aria-labelledby="pills-filter-tab">
+                <!-- The content of our tabs go in these divs -->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-filter" role="tabpanel"
+                        aria-labelledby="pills-filter-tab">
                         <!-- all the code regarding data filtering goes here (i.e. drop down menus, etc)-->
 
                     </div>
@@ -46,34 +45,47 @@
                         <!-- all the code for further analysis of the data goes here (i.e. graph of popularity of the location, list of transactions, etc) -->
                         <p>Analysis:</p>
                     </div>
-                    
-                  </div>
+
+                </div>
 
             </div><!-- sidebar-container END -->
-        
+
             <!-- MAIN -->
-            <div class="col map-col">                
+            <div class="col map-col">
                 <div class="card">
 
-                    
-                  <div id='map-card' class="container-fluid card-body text-center svg-container"> 
-                      
-                  </div>
+
+                    <div id='map-card' class="container-fluid card-body text-center svg-container">
+
+                    </div>
                 </div>
-               
-        
-        
+
+
+
             </div><!-- Main Col END -->
-            
+
         </div><!-- body-row END -->
-          
-          
-        </div><!-- container -->
 
 
-        <script src="js/d3.min.js"></script>
-        <script src="js/main.js"></script>
+    </div><!-- container -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/transaction_info.js"></script>
+    <script src="js/main.js"></script>
 
 
 </body>
+
 </html>
