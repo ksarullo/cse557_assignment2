@@ -10,11 +10,22 @@
     min-height: 100vh;
     background-color: #e2e6f0;
     padding: 0;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
     /* flex: unset; */
 }
 
+.map-col {
+    padding-top: 20px;
+}
+
+#map-card{
+    min-height: 95vh;
+}
+
 .sidebar-expanded {
-    width: 400px;
+    width: 500px;
 }
 
 .sidebar-collapsed {
@@ -69,3 +80,21 @@ path {
     stroke: black;
     stroke-width: .5px;
   }
+
+
+
+  .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: center;
+    overflow: hidden;
+  }
+  .svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+
+  

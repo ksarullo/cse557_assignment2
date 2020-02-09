@@ -18,4 +18,6 @@ Draw common routine and thickness/color of lines will depend on popularity
 Citations:
 https://codepen.io/lfrichter/pen/mQJJyB For the structure template
 https://getbootstrap.com/docs/4.1/getting-started/introduction/  Bootstrap Library
+http://bl.ocks.org/almccon/a53831a573911d0a875821c5f9fac6be
+https://www.d3indepth.com/geographic/
 
