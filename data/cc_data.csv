@@ -48,7 +48,7 @@ timestamp,location,price,FirstName,LastName
 1/6/2014 12:00,Jack's Magical Beans,27.84,Orhan,Strum
 1/6/2014 12:00,Jack's Magical Beans,18.1,Willem,Vasco-Pais
 1/6/2014 12:16,Abila Airport,1873.79,Henk,Mies
-1/6/2014 12:56,Katerina’s Café,13.68,Ada,Campo-Corrente
+1/6/2014 12:56,Katerina's Cafe,13.68,Ada,Campo-Corrente
 1/6/2014 12:57,Hippokampos,9.16,Orhan,Strum
 1/6/2014 13:18,Abila Zacharo,106.93,Carla,Forluniau
 1/6/2014 13:19,Gelatogalore,12.74,Linnea,Bergen
@@ -60,7 +60,7 @@ timestamp,location,price,FirstName,LastName
 1/6/2014 13:24,Guy's Gyros,15.44,Lars,Azada
 1/6/2014 13:27,Abila Zacharo,30.08,Ingrid,Barranco
 1/6/2014 13:27,Abila Zacharo,50.14,Kanon,Herrero
-1/6/2014 13:28,Katerina’s Café,33.54,Linda,Lagos
+1/6/2014 13:28,Katerina's Cafe,33.54,Linda,Lagos
 1/6/2014 13:28,Kalami Kafenion,8.64,Ruscella,Mies Haber
 1/6/2014 13:30,Guy's Gyros,16.92,Sven,Flecha
 1/6/2014 13:35,Hippokampos,36.54,Rachel,Pantanal
@@ -70,60 +70,60 @@ timestamp,location,price,FirstName,LastName
 1/6/2014 13:41,Gelatogalore,22.64,Nils,Calixto
 1/6/2014 13:42,Ouzeri Elian,20.4,Vira,Frente
 1/6/2014 13:46,Guy's Gyros,30.82,Felix,Balas
-1/6/2014 13:46,Katerina’s Café,18.56,Isak,Baza
+1/6/2014 13:46,Katerina's Cafe,18.56,Isak,Baza
 1/6/2014 13:46,Guy's Gyros,99.67,Willem,Vasco-Pais
 1/6/2014 13:47,Kalami Kafenion,22.13,Gustav,Cazar
 1/6/2014 13:48,Ouzeri Elian,20.74,Cornelia,Lais
 1/6/2014 13:48,Ouzeri Elian,30.87,Bertrand,Ovan
-1/6/2014 13:50,Katerina’s Café,13.59,Lidelse,Dedos
-1/6/2014 13:50,Katerina’s Café,32.64,Birgitta,Frente
+1/6/2014 13:50,Katerina's Cafe,13.59,Lidelse,Dedos
+1/6/2014 13:50,Katerina's Cafe,32.64,Birgitta,Frente
 1/6/2014 13:52,Kalami Kafenion,22.31,Minke,Mies
 1/6/2014 13:52,Gelatogalore,36.33,Kare,Orilla
-1/6/2014 13:53,Katerina’s Café,36.95,Adra,Nubarron
+1/6/2014 13:53,Katerina's Cafe,36.95,Adra,Nubarron
 1/6/2014 13:54,Abila Zacharo,23.15,Hennie,Osvaldo
 1/6/2014 13:57,Hippokampos,8.64,Axel,Calzas
 1/6/2014 13:58,Hippokampos,38.25,Dante,Coginian
-1/6/2014 13:59,Katerina’s Café,39.41,Loreto,Bodrogi
+1/6/2014 13:59,Katerina's Cafe,39.41,Loreto,Bodrogi
 1/6/2014 14:00,Kalami Kafenion,13.08,Varro,Awelon
 1/6/2014 14:00,Gelatogalore,23.41,Inga,Ferro
 1/6/2014 14:04,Hippokampos,30.88,Mat,Bramar
 1/6/2014 14:05,Abila Zacharo,78.11,Hideki,Cocinaro
 1/6/2014 14:15,Kalami Kafenion,27.4,Emile,Arpa
-1/6/2014 14:17,Katerina’s Café,19.65,Felix,Resumir
+1/6/2014 14:17,Katerina's Cafe,19.65,Felix,Resumir
 1/6/2014 15:14,Abila Airport,777.06,Albina,Hafon
 1/6/2014 15:39,Abila Airport,612.47,Henk,Mies
 1/6/2014 17:28,U-Pump,59.51,Varja,Lagos
-1/6/2014 18:56,Katerina’s Café,78.65,Linda,Lagos
-1/6/2014 19:08,Katerina’s Café,26.46,Emile,Arpa
+1/6/2014 18:56,Katerina's Cafe,78.65,Linda,Lagos
+1/6/2014 19:08,Katerina's Cafe,26.46,Emile,Arpa
 1/6/2014 19:18,Guy's Gyros,39.29,Sven,Flecha
 1/6/2014 19:50,Frydos Autosupply n' More,273.87,Elsa,Orilla
-1/6/2014 20:07,Katerina’s Café,23.63,Linnea,Bergen
-1/6/2014 20:08,Katerina’s Café,12.32,Lidelse,Dedos
+1/6/2014 20:07,Katerina's Cafe,23.63,Linnea,Bergen
+1/6/2014 20:08,Katerina's Cafe,12.32,Lidelse,Dedos
 1/6/2014 20:09,Guy's Gyros,11.94,Felix,Resumir
 1/6/2014 20:12,Frydos Autosupply n' More,80.85,Dante,Coginian
 1/6/2014 20:13,Guy's Gyros,22.57,Varja,Lagos
 1/6/2014 20:15,Guy's Gyros,117.82,Stenig,Fusil
 1/6/2014 20:15,Frydos Autosupply n' More,175.87,Cornelia,Lais
-1/6/2014 20:19,Katerina’s Café,21.66,Carla,Forluniau
+1/6/2014 20:19,Katerina's Cafe,21.66,Carla,Forluniau
 1/6/2014 20:20,Hippokampos,35.34,Gustav,Cazar
 1/6/2014 20:24,Guy's Gyros,28.94,Inga,Ferro
 1/6/2014 20:26,Albert's Fine Clothing,276.9,Lucas,Alcazar
 1/6/2014 20:28,Guy's Gyros,95.29,Hideki,Cocinaro
 1/6/2014 20:29,Hippokampos,85.5,Vira,Frente
-1/6/2014 20:29,Katerina’s Café,17.92,Hennie,Osvaldo
-1/6/2014 20:30,Katerina’s Café,28,Anda,Ribera
-1/6/2014 20:33,Katerina’s Café,15.52,Bertrand,Ovan
+1/6/2014 20:29,Katerina's Cafe,17.92,Hennie,Osvaldo
+1/6/2014 20:30,Katerina's Cafe,28,Anda,Ribera
+1/6/2014 20:33,Katerina's Cafe,15.52,Bertrand,Ovan
 1/6/2014 20:36,Hippokampos,26.8,Axel,Calzas
 1/6/2014 20:46,Hippokampos,24.41,Varro,Awelon
 1/6/2014 20:46,Hippokampos,21.33,Lars,Azada
 1/6/2014 20:47,Frydos Autosupply n' More,149.3,Ruscella,Mies Haber
 1/6/2014 20:49,Shoppers' Delight,293.67,Isia,Vann
 1/6/2014 20:52,Hippokampos,17.27,Ingrid,Barranco
-1/6/2014 20:59,Katerina’s Café,26.1,Kare,Orilla
-1/6/2014 21:03,Katerina’s Café,10.72,Birgitta,Frente
+1/6/2014 20:59,Katerina's Cafe,26.1,Kare,Orilla
+1/6/2014 21:03,Katerina's Cafe,10.72,Birgitta,Frente
 1/6/2014 21:03,Albert's Fine Clothing,121.76,Minke,Mies
 1/6/2014 21:11,Hippokampos,28.14,Orhan,Strum
-1/6/2014 21:12,Katerina’s Café,26.51,Mat,Bramar
+1/6/2014 21:12,Katerina's Cafe,26.51,Mat,Bramar
 1/6/2014 21:23,Frydos Autosupply n' More,197.32,Adra,Nubarron
 1/6/2014 21:32,Frydos Autosupply n' More,314.98,Marin,Onda
 1/6/2014 21:52,Hippokampos,20.61,Ada,Campo-Corrente
@@ -176,7 +176,7 @@ timestamp,location,price,FirstName,LastName
 1/7/2014 12:00,Jack's Magical Beans,69.84,Willem,Vasco-Pais
 1/7/2014 12:02,Nationwide Refinery,1071.04,Benito,Hawelon
 1/7/2014 12:29,Abila Airport,124.89,Henk,Mies
-1/7/2014 13:08,Katerina’s Café,59.07,Valeria,Morlun
+1/7/2014 13:08,Katerina's Cafe,59.07,Valeria,Morlun
 1/7/2014 13:13,Guy's Gyros,29.57,Orhan,Strum
 1/7/2014 13:20,Abila Zacharo,13.52,Lars,Azada
 1/7/2014 13:20,Gelatogalore,35.06,Ada,Campo-Corrente
@@ -189,14 +189,14 @@ timestamp,location,price,FirstName,LastName
 1/7/2014 13:32,Ouzeri Elian,28.37,Mat,Bramar
 1/7/2014 13:33,Abila Zacharo,52.72,Ingrid,Barranco
 1/7/2014 13:33,Gelatogalore,34.04,Linnea,Bergen
-1/7/2014 13:33,Katerina’s Café,22.27,Nils,Calixto
+1/7/2014 13:33,Katerina's Cafe,22.27,Nils,Calixto
 1/7/2014 13:33,Guy's Gyros,11.31,Stenig,Fusil
 1/7/2014 13:33,Kalami Kafenion,18.06,Edvard,Vann
 1/7/2014 13:34,Ouzeri Elian,64.84,Vira,Frente
 1/7/2014 13:35,Gelatogalore,8.98,Willem,Vasco-Pais
 1/7/2014 13:37,Gelatogalore,21.52,Lucas,Alcazar
 1/7/2014 13:39,Gelatogalore,17.21,Hennie,Osvaldo
-1/7/2014 13:41,Katerina’s Café,51.41,Varja,Lagos
+1/7/2014 13:41,Katerina's Cafe,51.41,Varja,Lagos
 1/7/2014 13:41,Abila Zacharo,17.81,Brand,Tempestad
 1/7/2014 13:42,Ouzeri Elian,97.71,Cornelia,Lais
 1/7/2014 13:44,Abila Zacharo,32.4,Carla,Forluniau
@@ -210,10 +210,10 @@ timestamp,location,price,FirstName,LastName
 1/7/2014 13:54,Gelatogalore,88.97,Bertrand,Ovan
 1/7/2014 13:55,Abila Zacharo,65.9,Inga,Ferro
 1/7/2014 13:56,Ouzeri Elian,16.2,Gustav,Cazar
-1/7/2014 13:57,Katerina’s Café,37.44,Dante,Coginian
+1/7/2014 13:57,Katerina's Cafe,37.44,Dante,Coginian
 1/7/2014 13:57,Gelatogalore,15.4,Anda,Ribera
 1/7/2014 14:00,Hippokampos,76.11,Kare,Orilla
-1/7/2014 14:07,Katerina’s Café,10.9,Minke,Mies
+1/7/2014 14:07,Katerina's Cafe,10.9,Minke,Mies
 1/7/2014 14:09,Guy's Gyros,12.57,Birgitta,Frente
 1/7/2014 14:09,Ouzeri Elian,59.51,Felix,Resumir
 1/7/2014 14:11,Hippokampos,37.57,Emile,Arpa
@@ -229,32 +229,32 @@ timestamp,location,price,FirstName,LastName
 1/7/2014 20:01,Hippokampos,20.17,Axel,Calzas
 1/7/2014 20:02,Hippokampos,11.56,Lars,Azada
 1/7/2014 20:04,Albert's Fine Clothing,308.36,Vira,Frente
-1/7/2014 20:09,Katerina’s Café,19.49,Linnea,Bergen
+1/7/2014 20:09,Katerina's Cafe,19.49,Linnea,Bergen
 1/7/2014 20:10,Albert's Fine Clothing,78.91,Varro,Awelon
 1/7/2014 20:10,Guy's Gyros,42.25,Sven,Flecha
 1/7/2014 20:10,Guy's Gyros,26.82,Edvard,Vann
-1/7/2014 20:11,Katerina’s Café,10.07,Adra,Nubarron
+1/7/2014 20:11,Katerina's Cafe,10.07,Adra,Nubarron
 1/7/2014 20:11,Guy's Gyros,76.71,Brand,Tempestad
-1/7/2014 20:12,Katerina’s Café,55.63,Lidelse,Dedos
-1/7/2014 20:13,Katerina’s Café,94.75,Nils,Calixto
-1/7/2014 20:13,Katerina’s Café,65.02,Dante,Coginian
+1/7/2014 20:12,Katerina's Cafe,55.63,Lidelse,Dedos
+1/7/2014 20:13,Katerina's Cafe,94.75,Nils,Calixto
+1/7/2014 20:13,Katerina's Cafe,65.02,Dante,Coginian
 1/7/2014 20:14,Guy's Gyros,62.33,Loreto,Bodrogi
 1/7/2014 20:15,Ouzeri Elian,11.41,Elsa,Orilla
-1/7/2014 20:18,Katerina’s Café,31.6,Linda,Lagos
+1/7/2014 20:18,Katerina's Cafe,31.6,Linda,Lagos
 1/7/2014 20:19,Guy's Gyros,89.76,Isia,Vann
 1/7/2014 20:20,Frydos Autosupply n' More,312.73,Felix,Resumir
-1/7/2014 20:32,Katerina’s Café,19.53,Bertrand,Ovan
-1/7/2014 20:33,Katerina’s Café,17.26,Birgitta,Frente
-1/7/2014 20:33,Katerina’s Café,25.54,Anda,Ribera
+1/7/2014 20:32,Katerina's Cafe,19.53,Bertrand,Ovan
+1/7/2014 20:33,Katerina's Cafe,17.26,Birgitta,Frente
+1/7/2014 20:33,Katerina's Cafe,25.54,Anda,Ribera
 1/7/2014 20:34,Hippokampos,70.19,Gustav,Cazar
 1/7/2014 20:34,Guy's Gyros,23.12,Cornelia,Lais
-1/7/2014 20:47,Katerina’s Café,32.83,Kare,Orilla
+1/7/2014 20:47,Katerina's Cafe,32.83,Kare,Orilla
 1/7/2014 20:49,Ouzeri Elian,20.53,Rachel,Pantanal
 1/7/2014 20:51,Hippokampos,32.99,Orhan,Strum
-1/7/2014 21:01,Katerina’s Café,33.29,Hennie,Osvaldo
+1/7/2014 21:01,Katerina's Cafe,33.29,Hennie,Osvaldo
 1/7/2014 21:03,Hippokampos,21.2,Isande,Borrasca
 1/7/2014 21:17,Hippokampos,37.88,Willem,Vasco-Pais
-1/7/2014 21:19,Katerina’s Café,18.35,Marin,Onda
+1/7/2014 21:19,Katerina's Cafe,18.35,Marin,Onda
 1/7/2014 21:21,Hippokampos,35.85,Ingrid,Barranco
 1/7/2014 21:51,Hippokampos,22.18,Ada,Campo-Corrente
 1/8/2014 7:31,Brew've Been Served,15.66,Isia,Vann
@@ -312,31 +312,31 @@ timestamp,location,price,FirstName,LastName
 1/8/2014 13:10,Abila Zacharo,22.13,Ruscella,Mies Haber
 1/8/2014 13:12,Hippokampos,26.55,Ada,Campo-Corrente
 1/8/2014 13:15,Hippokampos,9.03,Edvard,Vann
-1/8/2014 13:19,Katerina’s Café,29.26,Valeria,Morlun
+1/8/2014 13:19,Katerina's Cafe,29.26,Valeria,Morlun
 1/8/2014 13:19,Chostus Hotel,111.89,Brand,Tempestad
 1/8/2014 13:21,Ouzeri Elian,109.73,Orhan,Strum
 1/8/2014 13:23,Abila Zacharo,36.85,Willem,Vasco-Pais
 1/8/2014 13:26,Hippokampos,16.59,Linnea,Bergen
 1/8/2014 13:27,Gelatogalore,32.79,Linda,Lagos
-1/8/2014 13:28,Katerina’s Café,8.53,Isak,Baza
+1/8/2014 13:28,Katerina's Cafe,8.53,Isak,Baza
 1/8/2014 13:28,Gelatogalore,20.72,Hennie,Osvaldo
 1/8/2014 13:29,Kalami Kafenion,24.08,Bertrand,Ovan
 1/8/2014 13:31,Hippokampos,37.89,Gustav,Cazar
 1/8/2014 13:32,Guy's Gyros,30.12,Sven,Flecha
 1/8/2014 13:34,Abila Zacharo,14.41,Lars,Azada
-1/8/2014 13:34,Katerina’s Café,88.98,Marin,Onda
+1/8/2014 13:34,Katerina's Cafe,88.98,Marin,Onda
 1/8/2014 13:38,Gelatogalore,50.36,Kanon,Herrero
 1/8/2014 13:39,Gelatogalore,119.75,Varja,Lagos
 1/8/2014 13:40,Guy's Gyros,77.9,Loreto,Bodrogi
-1/8/2014 13:41,Katerina’s Café,26.45,Adra,Nubarron
+1/8/2014 13:41,Katerina's Cafe,26.45,Adra,Nubarron
 1/8/2014 13:42,Gelatogalore,35.29,Nils,Calixto
 1/8/2014 13:42,Kalami Kafenion,22.49,Dante,Coginian
-1/8/2014 13:42,Katerina’s Café,57.04,Vira,Frente
+1/8/2014 13:42,Katerina's Cafe,57.04,Vira,Frente
 1/8/2014 13:43,Hippokampos,39.8,Lucas,Alcazar
 1/8/2014 13:44,Kalami Kafenion,31.96,Isia,Vann
 1/8/2014 13:45,Kalami Kafenion,23.82,Kare,Orilla
 1/8/2014 13:46,Abila Zacharo,28.25,Rachel,Pantanal
-1/8/2014 13:47,Katerina’s Café,27.05,Axel,Calzas
+1/8/2014 13:47,Katerina's Cafe,27.05,Axel,Calzas
 1/8/2014 13:47,Gelatogalore,22.27,Carla,Forluniau
 1/8/2014 13:47,Ouzeri Elian,104.92,Cornelia,Lais
 1/8/2014 13:48,Hippokampos,28.79,Felix,Balas
@@ -346,7 +346,7 @@ timestamp,location,price,FirstName,LastName
 1/8/2014 13:52,Kalami Kafenion,14.77,Stenig,Fusil
 1/8/2014 13:53,Abila Zacharo,16.2,Birgitta,Frente
 1/8/2014 13:57,Guy's Gyros,10.34,Minke,Mies
-1/8/2014 14:06,Katerina’s Café,22.94,Hideki,Cocinaro
+1/8/2014 14:06,Katerina's Cafe,22.94,Hideki,Cocinaro
 1/8/2014 14:09,Kronos Pipe and Irrigation,3615.61,Irene,Nant
 1/8/2014 14:15,Kalami Kafenion,34.98,Varro,Awelon
 1/8/2014 14:17,Gelatogalore,39.94,Mat,Bramar
@@ -356,33 +356,33 @@ timestamp,location,price,FirstName,LastName
 1/8/2014 15:29,Abila Airport,2769.12,Henk,Mies
 1/8/2014 19:21,Hippokampos,10.52,Lars,Azada
 1/8/2014 19:28,Hippokampos,16.54,Isande,Borrasca
-1/8/2014 19:32,Katerina’s Café,34.25,Ruscella,Mies Haber
+1/8/2014 19:32,Katerina's Cafe,34.25,Ruscella,Mies Haber
 1/8/2014 19:36,Guy's Gyros,15.69,Isia,Vann
 1/8/2014 19:48,Guy's Gyros,30.48,Minke,Mies
-1/8/2014 20:00,Katerina’s Café,13.83,Linda,Lagos
+1/8/2014 20:00,Katerina's Cafe,13.83,Linda,Lagos
 1/8/2014 20:02,Hippokampos,32.66,Vira,Frente
 1/8/2014 20:07,Guy's Gyros,28.81,Sven,Flecha
 1/8/2014 20:07,Frydos Autosupply n' More,214.07,Carla,Forluniau
 1/8/2014 20:08,Guy's Gyros,33.02,Cornelia,Lais
-1/8/2014 20:08,Katerina’s Café,31.59,Marin,Onda
+1/8/2014 20:08,Katerina's Cafe,31.59,Marin,Onda
 1/8/2014 20:12,Ouzeri Elian,62.2,Kanon,Herrero
 1/8/2014 20:15,Guy's Gyros,99.08,Varja,Lagos
 1/8/2014 20:17,Frydos Autosupply n' More,182.56,Loreto,Bodrogi
 1/8/2014 20:17,Guy's Gyros,18.24,Brand,Tempestad
-1/8/2014 20:27,Katerina’s Café,33.31,Adra,Nubarron
+1/8/2014 20:27,Katerina's Cafe,33.31,Adra,Nubarron
 1/8/2014 20:28,Hippokampos,96.75,Varro,Awelon
 1/8/2014 20:28,Frydos Autosupply n' More,268.89,Anda,Ribera
-1/8/2014 20:31,Katerina’s Café,36.6,Nils,Calixto
-1/8/2014 20:35,Katerina’s Café,16.93,Dante,Coginian
-1/8/2014 20:42,Katerina’s Café,92.83,Bertrand,Ovan
+1/8/2014 20:31,Katerina's Cafe,36.6,Nils,Calixto
+1/8/2014 20:35,Katerina's Cafe,16.93,Dante,Coginian
+1/8/2014 20:42,Katerina's Cafe,92.83,Bertrand,Ovan
 1/8/2014 20:45,Albert's Fine Clothing,136.01,Felix,Balas
 1/8/2014 20:49,Hippokampos,15.64,Ada,Campo-Corrente
 1/8/2014 20:53,Hippokampos,26.31,Ingrid,Barranco
 1/8/2014 20:57,Guy's Gyros,10.28,Felix,Resumir
 1/8/2014 20:58,Guy's Gyros,22.91,Inga,Ferro
 1/8/2014 21:00,General Grocer,265.84,Hideki,Cocinaro
-1/8/2014 21:02,Katerina’s Café,28.86,Mat,Bramar
-1/8/2014 21:09,Katerina’s Café,27.87,Lidelse,Dedos
+1/8/2014 21:02,Katerina's Cafe,28.86,Mat,Bramar
+1/8/2014 21:09,Katerina's Cafe,27.87,Lidelse,Dedos
 1/8/2014 21:16,Ouzeri Elian,30.81,Lucas,Alcazar
 1/8/2014 21:17,Ouzeri Elian,29.85,Isak,Baza
 1/8/2014 21:32,Hippokampos,78.99,Willem,Vasco-Pais
@@ -434,7 +434,7 @@ timestamp,location,price,FirstName,LastName
 1/9/2014 12:13,Abila Airport,202.93,Henk,Mies
 1/9/2014 12:49,Nationwide Refinery,1440.39,Benito,Hawelon
 1/9/2014 12:59,Ouzeri Elian,31.03,Ada,Campo-Corrente
-1/9/2014 13:03,Katerina’s Café,17.02,Linnea,Bergen
+1/9/2014 13:03,Katerina's Cafe,17.02,Linnea,Bergen
 1/9/2014 13:12,Gelatogalore,19.2,Ruscella,Mies Haber
 1/9/2014 13:18,Abila Airport,4792.5,Dylan,Scozzese
 1/9/2014 13:21,Ouzeri Elian,26.09,Ingrid,Barranco
@@ -443,14 +443,14 @@ timestamp,location,price,FirstName,LastName
 1/9/2014 13:23,Gelatogalore,8.6,Isak,Baza
 1/9/2014 13:23,Gelatogalore,56.74,Isande,Borrasca
 1/9/2014 13:23,Ouzeri Elian,22.4,Stenig,Fusil
-1/9/2014 13:23,Katerina’s Café,16.98,Valeria,Morlun
+1/9/2014 13:23,Katerina's Cafe,16.98,Valeria,Morlun
 1/9/2014 13:24,Abila Zacharo,8.16,Varja,Lagos
 1/9/2014 13:27,Kalami Kafenion,110.76,Vira,Frente
-1/9/2014 13:27,Katerina’s Café,25.85,Orhan,Strum
+1/9/2014 13:27,Katerina's Cafe,25.85,Orhan,Strum
 1/9/2014 13:28,Guy's Gyros,13.59,Nils,Calixto
 1/9/2014 13:29,Hippokampos,27.47,Carla,Forluniau
 1/9/2014 13:32,Abila Zacharo,8.6,Willem,Vasco-Pais
-1/9/2014 13:35,Katerina’s Café,10.42,Loreto,Bodrogi
+1/9/2014 13:35,Katerina's Cafe,10.42,Loreto,Bodrogi
 1/9/2014 13:35,Gelatogalore,23.23,Linda,Lagos
 1/9/2014 13:36,Hippokampos,27.93,Brand,Tempestad
 1/9/2014 13:37,Hippokampos,9.12,Gustav,Cazar
@@ -472,7 +472,7 @@ timestamp,location,price,FirstName,LastName
 1/9/2014 14:03,Kalami Kafenion,35.99,Anda,Ribera
 1/9/2014 14:04,Kalami Kafenion,10.94,Emile,Arpa
 1/9/2014 14:04,Ouzeri Elian,32.89,Hideki,Cocinaro
-1/9/2014 14:06,Katerina’s Café,8.01,Axel,Calzas
+1/9/2014 14:06,Katerina's Cafe,8.01,Axel,Calzas
 1/9/2014 14:09,Guy's Gyros,27.69,Dante,Coginian
 1/9/2014 14:12,Abila Scrapyard,1158.36,Dylan,Scozzese
 1/9/2014 14:13,Guy's Gyros,17.44,Bertrand,Ovan
@@ -485,29 +485,29 @@ timestamp,location,price,FirstName,LastName
 1/9/2014 15:50,Abila Airport,4538.52,Henk,Mies
 1/9/2014 16:22,Carlyle Chemical Inc.,2176.2,Valeria,Morlun
 1/9/2014 16:27,Nationwide Refinery,1322.5,Dylan,Scozzese
-1/9/2014 19:25,Katerina’s Café,35.92,Emile,Arpa
-1/9/2014 19:30,Katerina’s Café,26.6,Bertrand,Ovan
+1/9/2014 19:25,Katerina's Cafe,35.92,Emile,Arpa
+1/9/2014 19:30,Katerina's Cafe,26.6,Bertrand,Ovan
 1/9/2014 19:32,Frydos Autosupply n' More,138.02,Varja,Lagos
 1/9/2014 19:41,Guy's Gyros,31.81,Isia,Vann
 1/9/2014 19:42,Ouzeri Elian,27.08,Isak,Baza
 1/9/2014 19:43,Ouzeri Elian,31.07,Elsa,Orilla
 1/9/2014 19:52,Guy's Gyros,29.96,Stenig,Fusil
 1/9/2014 20:05,Hippokampos,15.02,Isande,Borrasca
-1/9/2014 20:06,Katerina’s Café,26.6,Mat,Bramar
-1/9/2014 20:08,Katerina’s Café,19.02,Kare,Orilla
-1/9/2014 20:09,Katerina’s Café,90.97,Anda,Ribera
+1/9/2014 20:06,Katerina's Cafe,26.6,Mat,Bramar
+1/9/2014 20:08,Katerina's Cafe,19.02,Kare,Orilla
+1/9/2014 20:09,Katerina's Cafe,90.97,Anda,Ribera
 1/9/2014 20:15,Hippokampos,70.68,Axel,Calzas
 1/9/2014 20:19,General Grocer,285.34,Edvard,Vann
-1/9/2014 20:20,Katerina’s Café,91.14,Hennie,Osvaldo
+1/9/2014 20:20,Katerina's Cafe,91.14,Hennie,Osvaldo
 1/9/2014 20:20,Frydos Autosupply n' More,31.24,Felix,Resumir
 1/9/2014 20:21,Albert's Fine Clothing,224.52,Varro,Awelon
 1/9/2014 20:21,Frydos Autosupply n' More,120.65,Gustav,Cazar
-1/9/2014 20:22,Katerina’s Café,29.82,Dante,Coginian
+1/9/2014 20:22,Katerina's Cafe,29.82,Dante,Coginian
 1/9/2014 20:23,Guy's Gyros,8.23,Nils,Calixto
 1/9/2014 20:24,Guy's Gyros,18.26,Kanon,Herrero
-1/9/2014 20:27,Katerina’s Café,53.78,Ruscella,Mies Haber
+1/9/2014 20:27,Katerina's Cafe,53.78,Ruscella,Mies Haber
 1/9/2014 20:29,Guy's Gyros,23.34,Linnea,Bergen
-1/9/2014 20:38,Katerina’s Café,30.69,Carla,Forluniau
+1/9/2014 20:38,Katerina's Cafe,30.69,Carla,Forluniau
 1/9/2014 20:38,Guy's Gyros,8.23,Cornelia,Lais
 1/9/2014 20:39,Guy's Gyros,35.05,Sven,Flecha
 1/9/2014 20:41,Hippokampos,9.13,Willem,Vasco-Pais
@@ -516,7 +516,7 @@ timestamp,location,price,FirstName,LastName
 1/9/2014 21:09,Guy's Gyros,31.31,Minke,Mies
 1/9/2014 21:12,Hippokampos,23.66,Orhan,Strum
 1/9/2014 21:13,Shoppers' Delight,258.43,Rachel,Pantanal
-1/9/2014 21:18,Katerina’s Café,8.57,Marin,Onda
+1/9/2014 21:18,Katerina's Cafe,8.57,Marin,Onda
 1/9/2014 21:27,Albert's Fine Clothing,229.98,Ada,Campo-Corrente
 1/9/2014 21:38,Hippokampos,10.12,Felix,Balas
 1/10/2014 7:34,Hallowed Grounds,16.75,Emile,Arpa
@@ -576,23 +576,23 @@ timestamp,location,price,FirstName,LastName
 1/10/2014 13:25,Guy's Gyros,26.76,Stenig,Fusil
 1/10/2014 13:27,Guy's Gyros,15.93,Linnea,Bergen
 1/10/2014 13:29,Abila Zacharo,113.33,Isak,Baza
-1/10/2014 13:30,Katerina’s Café,34.76,Ingrid,Barranco
+1/10/2014 13:30,Katerina's Cafe,34.76,Ingrid,Barranco
 1/10/2014 13:30,Kalami Kafenion,35.69,Varja,Lagos
 1/10/2014 13:35,Gelatogalore,26.15,Lars,Azada
 1/10/2014 13:35,Ouzeri Elian,35.24,Loreto,Bodrogi
 1/10/2014 13:35,Kalami Kafenion,101.5,Elsa,Orilla
 1/10/2014 13:36,Abila Zacharo,36.73,Marin,Onda
-1/10/2014 13:36,Katerina’s Café,25.36,Isia,Vann
+1/10/2014 13:36,Katerina's Cafe,25.36,Isia,Vann
 1/10/2014 13:38,Guy's Gyros,26.68,Sven,Flecha
-1/10/2014 13:38,Katerina’s Café,21.22,Carla,Forluniau
+1/10/2014 13:38,Katerina's Cafe,21.22,Carla,Forluniau
 1/10/2014 13:40,Hippokampos,32.01,Willem,Vasco-Pais
 1/10/2014 13:44,Guy's Gyros,38.15,Linda,Lagos
 1/10/2014 13:44,Ouzeri Elian,20.46,Hennie,Osvaldo
 1/10/2014 13:45,Kalami Kafenion,27.48,Ruscella,Mies Haber
 1/10/2014 13:46,Abila Zacharo,31.34,Rachel,Pantanal
 1/10/2014 13:47,Guy's Gyros,31.5,Felix,Balas
-1/10/2014 13:47,Katerina’s Café,25.62,Vira,Frente
-1/10/2014 13:47,Katerina’s Café,24.33,Adra,Nubarron
+1/10/2014 13:47,Katerina's Cafe,25.62,Vira,Frente
+1/10/2014 13:47,Katerina's Cafe,24.33,Adra,Nubarron
 1/10/2014 13:50,Ouzeri Elian,15.25,Axel,Calzas
 1/10/2014 13:52,Guy's Gyros,31.05,Gustav,Cazar
 1/10/2014 13:53,Kalami Kafenion,24.3,Minke,Mies
@@ -604,7 +604,7 @@ timestamp,location,price,FirstName,LastName
 1/10/2014 14:03,Abila Zacharo,36.38,Inga,Ferro
 1/10/2014 14:07,Hippokampos,11.61,Varro,Awelon
 1/10/2014 14:07,Ouzeri Elian,30.93,Birgitta,Frente
-1/10/2014 14:08,Katerina’s Café,77.62,Hideki,Cocinaro
+1/10/2014 14:08,Katerina's Cafe,77.62,Hideki,Cocinaro
 1/10/2014 14:09,Abila Zacharo,9.32,Anda,Ribera
 1/10/2014 14:11,Gelatogalore,32.19,Dante,Coginian
 1/10/2014 14:20,Hippokampos,10.16,Mat,Bramar
@@ -614,30 +614,30 @@ timestamp,location,price,FirstName,LastName
 1/10/2014 18:57,Frydos Autosupply n' More,98.39,Nils,Calixto
 1/10/2014 19:45,Guy's Gyros,23.61,Stenig,Fusil
 1/10/2014 19:46,Hippokampos,48.22,Lars,Azada
-1/10/2014 19:50,Katerina’s Café,19.57,Emile,Arpa
+1/10/2014 19:50,Katerina's Cafe,19.57,Emile,Arpa
 1/10/2014 19:54,Guy's Gyros,27.78,Edvard,Vann
 1/10/2014 19:56,Hippokampos,19.88,Varro,Awelon
-1/10/2014 19:56,Katerina’s Café,21.89,Bertrand,Ovan
+1/10/2014 19:56,Katerina's Cafe,21.89,Bertrand,Ovan
 1/10/2014 20:02,Frydos Autosupply n' More,43.65,Dante,Coginian
-1/10/2014 20:08,Katerina’s Café,15.76,Hennie,Osvaldo
+1/10/2014 20:08,Katerina's Cafe,15.76,Hennie,Osvaldo
 1/10/2014 20:09,Hippokampos,70.48,Ingrid,Barranco
-1/10/2014 20:09,Katerina’s Café,8.14,Linda,Lagos
+1/10/2014 20:09,Katerina's Cafe,8.14,Linda,Lagos
 1/10/2014 20:09,Guy's Gyros,29.81,Felix,Resumir
 1/10/2014 20:11,Albert's Fine Clothing,126.13,Vira,Frente
 1/10/2014 20:15,Frydos Autosupply n' More,237.08,Sven,Flecha
 1/10/2014 20:17,Shoppers' Delight,279.53,Inga,Ferro
 1/10/2014 20:20,Guy's Gyros,35.54,Hideki,Cocinaro
 1/10/2014 20:23,Guy's Gyros,37.37,Loreto,Bodrogi
-1/10/2014 20:42,Katerina’s Café,21.28,Ruscella,Mies Haber
+1/10/2014 20:42,Katerina's Cafe,21.28,Ruscella,Mies Haber
 1/10/2014 20:50,Hippokampos,17.21,Ada,Campo-Corrente
 1/10/2014 21:11,Roberts and Sons,241.2,Isia,Vann
 1/10/2014 21:13,Guy's Gyros,25.81,Cornelia,Lais
 1/10/2014 21:17,Hippokampos,27,Orhan,Strum
 1/10/2014 21:28,General Grocer,227.28,Minke,Mies
 1/10/2014 22:21,Hippokampos,79.97,Willem,Vasco-Pais
-1/11/2014 13:19,Katerina’s Café,45.22,Orhan,Strum
-1/11/2014 13:23,Katerina’s Café,45.21,Carla,Forluniau
-1/11/2014 13:32,Katerina’s Café,29.1,Vira,Frente
+1/11/2014 13:19,Katerina's Cafe,45.22,Orhan,Strum
+1/11/2014 13:23,Katerina's Cafe,45.21,Carla,Forluniau
+1/11/2014 13:32,Katerina's Cafe,29.1,Vira,Frente
 1/11/2014 13:32,Abila Zacharo,54.82,Marin,Onda
 1/11/2014 13:33,Abila Zacharo,89.54,Isande,Borrasca
 1/11/2014 13:35,Gelatogalore,17.31,Birgitta,Frente
@@ -645,14 +645,14 @@ timestamp,location,price,FirstName,LastName
 1/11/2014 13:37,Hippokampos,75.62,Lucas,Alcazar
 1/11/2014 13:37,Hippokampos,82.23,Anda,Ribera
 1/11/2014 13:40,Ouzeri Elian,19.11,Emile,Arpa
-1/11/2014 13:43,Katerina’s Café,71.65,Varja,Lagos
+1/11/2014 13:43,Katerina's Cafe,71.65,Varja,Lagos
 1/11/2014 13:47,Hippokampos,31.1,Ingrid,Barranco
-1/11/2014 13:50,Katerina’s Café,23.45,Gustav,Cazar
+1/11/2014 13:50,Katerina's Cafe,23.45,Gustav,Cazar
 1/11/2014 13:51,Abila Zacharo,32.02,Linnea,Bergen
 1/11/2014 13:59,Gelatogalore,18.74,Loreto,Bodrogi
 1/11/2014 14:09,Kalami Kafenion,35.66,Varro,Awelon
 1/11/2014 14:16,Kalami Kafenion,39.36,Hideki,Cocinaro
-1/11/2014 14:17,Katerina’s Café,26.02,Adra,Nubarron
+1/11/2014 14:17,Katerina's Cafe,26.02,Adra,Nubarron
 1/11/2014 14:19,Abila Zacharo,45.2,Felix,Resumir
 1/11/2014 15:15,Shoppers' Delight,157.45,Birgitta,Frente
 1/11/2014 15:20,Shoppers' Delight,238.52,Carla,Forluniau
@@ -662,41 +662,41 @@ timestamp,location,price,FirstName,LastName
 1/11/2014 16:09,Frydos Autosupply n' More,52.73,Ingrid,Barranco
 1/11/2014 16:24,Ahaggo Museum,89.32,Edvard,Vann
 1/11/2014 17:16,Ahaggo Museum,52.14,Brand,Tempestad
-1/11/2014 19:08,Katerina’s Café,55.67,Birgitta,Frente
+1/11/2014 19:08,Katerina's Cafe,55.67,Birgitta,Frente
 1/11/2014 19:17,Kalami Kafenion,23.86,Inga,Ferro
 1/11/2014 19:21,Ouzeri Elian,69.36,Isak,Baza
 1/11/2014 19:26,Hippokampos,66.21,Ingrid,Barranco
 1/11/2014 19:27,Albert's Fine Clothing,105.33,Orhan,Strum
 1/11/2014 19:27,Hippokampos,32.63,Brand,Tempestad
 1/11/2014 19:29,Hippokampos,63.21,Edvard,Vann
-1/11/2014 19:31,Katerina’s Café,33.18,Adra,Nubarron
-1/11/2014 19:32,Katerina’s Café,20.71,Anda,Ribera
+1/11/2014 19:31,Katerina's Cafe,33.18,Adra,Nubarron
+1/11/2014 19:32,Katerina's Cafe,20.71,Anda,Ribera
 1/11/2014 19:33,Hippokampos,11.13,Axel,Calzas
 1/11/2014 19:34,Guy's Gyros,55.36,Stenig,Fusil
-1/11/2014 19:40,Katerina’s Café,57.36,Isande,Borrasca
+1/11/2014 19:40,Katerina's Cafe,57.36,Isande,Borrasca
 1/11/2014 19:44,Shoppers' Delight,149.2,Lucas,Alcazar
 1/11/2014 19:45,Hippokampos,63.21,Ada,Campo-Corrente
-1/11/2014 19:50,Katerina’s Café,12.55,Nils,Calixto
-1/11/2014 19:51,Katerina’s Café,45.68,Marin,Onda
-1/11/2014 19:52,Katerina’s Café,15.72,Linda,Lagos
+1/11/2014 19:50,Katerina's Cafe,12.55,Nils,Calixto
+1/11/2014 19:51,Katerina's Cafe,45.68,Marin,Onda
+1/11/2014 19:52,Katerina's Cafe,15.72,Linda,Lagos
 1/11/2014 19:53,Hippokampos,67.37,Felix,Balas
 1/11/2014 19:57,Guy's Gyros,36.2,Cornelia,Lais
-1/11/2014 20:00,Katerina’s Café,25.76,Mat,Bramar
+1/11/2014 20:00,Katerina's Cafe,25.76,Mat,Bramar
 1/11/2014 20:04,Kalami Kafenion,50.2,Kanon,Herrero
 1/11/2014 20:04,Ouzeri Elian,16.69,Rachel,Pantanal
-1/11/2014 20:06,Katerina’s Café,52.45,Dante,Coginian
+1/11/2014 20:06,Katerina's Cafe,52.45,Dante,Coginian
 1/11/2014 20:06,Guy's Gyros,33.65,Sven,Flecha
 1/11/2014 20:09,Guy's Gyros,16.33,Isia,Vann
 1/11/2014 20:13,Frydos Autosupply n' More,211.15,Ruscella,Mies Haber
-1/11/2014 20:13,Katerina’s Café,9.78,Hennie,Osvaldo
+1/11/2014 20:13,Katerina's Cafe,9.78,Hennie,Osvaldo
 1/11/2014 20:15,Frydos Autosupply n' More,114.98,Bertrand,Ovan
 1/11/2014 20:22,Frydos Autosupply n' More,236.25,Emile,Arpa
 1/11/2014 20:23,Hippokampos,70.23,Lars,Azada
-1/11/2014 20:24,Katerina’s Café,94.68,Carla,Forluniau
+1/11/2014 20:24,Katerina's Cafe,94.68,Carla,Forluniau
 1/11/2014 20:26,Frydos Autosupply n' More,261,Felix,Resumir
 1/11/2014 20:27,Hippokampos,69.8,Varro,Awelon
 1/11/2014 20:30,Kalami Kafenion,46.78,Hideki,Cocinaro
-1/11/2014 20:46,Katerina’s Café,57.6,Lidelse,Dedos
+1/11/2014 20:46,Katerina's Cafe,57.6,Lidelse,Dedos
 1/12/2014 3:39,Kronos Mart,277.26,Orhan,Strum
 1/12/2014 13:03,Ouzeri Elian,38.55,Ada,Campo-Corrente
 1/12/2014 13:17,Ouzeri Elian,98.45,Ruscella,Mies Haber
@@ -724,8 +724,8 @@ timestamp,location,price,FirstName,LastName
 1/12/2014 15:49,Albert's Fine Clothing,195.81,Adra,Nubarron
 1/12/2014 16:08,Shoppers' Delight,51.5,Bertrand,Ovan
 1/12/2014 16:27,Ahaggo Museum,120.2,Felix,Resumir
-1/12/2014 19:18,Katerina’s Café,12.64,Nils,Calixto
-1/12/2014 19:21,Katerina’s Café,11.81,Linnea,Bergen
+1/12/2014 19:18,Katerina's Cafe,12.64,Nils,Calixto
+1/12/2014 19:21,Katerina's Cafe,11.81,Linnea,Bergen
 1/12/2014 19:22,Hippokampos,27.15,Gustav,Cazar
 1/12/2014 19:26,Guy's Gyros,42.32,Hideki,Cocinaro
 1/12/2014 19:26,Shoppers' Delight,211.03,Sven,Flecha
@@ -733,25 +733,25 @@ timestamp,location,price,FirstName,LastName
 1/12/2014 19:32,Guy's Gyros,34.41,Loreto,Bodrogi
 1/12/2014 19:35,Hippokampos,49.23,Vira,Frente
 1/12/2014 19:36,Guy's Gyros,12.32,Isia,Vann
-1/12/2014 19:43,Katerina’s Café,40.94,Ruscella,Mies Haber
+1/12/2014 19:43,Katerina's Cafe,40.94,Ruscella,Mies Haber
 1/12/2014 19:44,Hippokampos,26.79,Ada,Campo-Corrente
-1/12/2014 19:47,Katerina’s Café,17.36,Kare,Orilla
+1/12/2014 19:47,Katerina's Cafe,17.36,Kare,Orilla
 1/12/2014 19:50,Gelatogalore,36.2,Kanon,Herrero
 1/12/2014 19:51,Hippokampos,52.21,Orhan,Strum
 1/12/2014 19:52,Frydos Autosupply n' More,88.93,Cornelia,Lais
 1/12/2014 19:58,Albert's Fine Clothing,63.36,Axel,Calzas
 1/12/2014 19:59,Ouzeri Elian,55.55,Isak,Baza
-1/12/2014 20:04,Katerina’s Café,39.3,Emile,Arpa
+1/12/2014 20:04,Katerina's Cafe,39.3,Emile,Arpa
 1/12/2014 20:05,Hippokampos,78.21,Felix,Balas
-1/12/2014 20:11,Katerina’s Café,67.14,Bertrand,Ovan
-1/12/2014 20:12,Katerina’s Café,15.37,Hennie,Osvaldo
-1/12/2014 20:13,Katerina’s Café,39.55,Adra,Nubarron
+1/12/2014 20:11,Katerina's Cafe,67.14,Bertrand,Ovan
+1/12/2014 20:12,Katerina's Cafe,15.37,Hennie,Osvaldo
+1/12/2014 20:13,Katerina's Cafe,39.55,Adra,Nubarron
 1/12/2014 20:15,Hippokampos,69.41,Isande,Borrasca
-1/12/2014 20:17,Katerina’s Café,16.34,Linda,Lagos
-1/12/2014 20:35,Katerina’s Café,40.25,Mat,Bramar
+1/12/2014 20:17,Katerina's Cafe,16.34,Linda,Lagos
+1/12/2014 20:35,Katerina's Cafe,40.25,Mat,Bramar
 1/12/2014 20:38,Hippokampos,63.32,Ingrid,Barranco
 1/12/2014 20:43,Frydos Autosupply n' More,161.96,Dante,Coginian
-1/12/2014 20:48,Katerina’s Café,87.09,Lidelse,Dedos
+1/12/2014 20:48,Katerina's Cafe,87.09,Lidelse,Dedos
 1/13/2014 3:00,Kronos Mart,147.3,Ruscella,Mies Haber
 1/13/2014 6:04,Daily Dealz,2.01,Lucas,Alcazar
 1/13/2014 7:32,Hallowed Grounds,9.16,Nils,Calixto
@@ -809,28 +809,28 @@ timestamp,location,price,FirstName,LastName
 1/13/2014 13:19,Gelatogalore,46.45,Ada,Campo-Corrente
 1/13/2014 13:20,Abila Zacharo,79.95,Stenig,Fusil
 1/13/2014 13:21,Abila Zacharo,64.5,Kanon,Herrero
-1/13/2014 13:23,Katerina’s Café,38.98,Carla,Forluniau
+1/13/2014 13:23,Katerina's Cafe,38.98,Carla,Forluniau
 1/13/2014 13:24,Hippokampos,35.73,Linnea,Bergen
 1/13/2014 13:27,Abila Zacharo,8.72,Brand,Tempestad
 1/13/2014 13:28,Hippokampos,30.51,Lucas,Alcazar
 1/13/2014 13:33,Guy's Gyros,27.49,Isande,Borrasca
-1/13/2014 13:34,Katerina’s Café,26.15,Isak,Baza
+1/13/2014 13:34,Katerina's Cafe,26.15,Isak,Baza
 1/13/2014 13:34,Abila Zacharo,27.3,Gustav,Cazar
 1/13/2014 13:34,Hippokampos,59.9,Isia,Vann
-1/13/2014 13:36,Katerina’s Café,17.21,Hennie,Osvaldo
+1/13/2014 13:36,Katerina's Cafe,17.21,Hennie,Osvaldo
 1/13/2014 13:37,Ouzeri Elian,95.03,Edvard,Vann
 1/13/2014 13:39,Guy's Gyros,37.37,Adra,Nubarron
-1/13/2014 13:40,Katerina’s Café,8.29,Lidelse,Dedos
+1/13/2014 13:40,Katerina's Cafe,8.29,Lidelse,Dedos
 1/13/2014 13:40,Guy's Gyros,29.25,Willem,Vasco-Pais
 1/13/2014 13:41,Gelatogalore,36.93,Lars,Azada
 1/13/2014 13:42,Abila Zacharo,11.99,Felix,Balas
 1/13/2014 13:48,Abila Zacharo,116.32,Loreto,Bodrogi
 1/13/2014 13:48,Ouzeri Elian,8.32,Marin,Onda
-1/13/2014 13:48,Katerina’s Café,24.26,Kare,Orilla
+1/13/2014 13:48,Katerina's Cafe,24.26,Kare,Orilla
 1/13/2014 13:50,Hippokampos,91.97,Sven,Flecha
 1/13/2014 13:51,Abila Zacharo,17.41,Inga,Ferro
 1/13/2014 13:51,Guy's Gyros,21.03,Linda,Lagos
-1/13/2014 13:52,Katerina’s Café,29.55,Bertrand,Ovan
+1/13/2014 13:52,Katerina's Cafe,29.55,Bertrand,Ovan
 1/13/2014 13:55,Kalami Kafenion,20.33,Cornelia,Lais
 1/13/2014 14:00,Guy's Gyros,38.07,Varro,Awelon
 1/13/2014 14:00,Gelatogalore,36.24,Dante,Coginian
@@ -845,33 +845,33 @@ timestamp,location,price,FirstName,LastName
 1/13/2014 19:27,Shoppers' Delight,216.43,Loreto,Bodrogi
 1/13/2014 19:30,Ouzeri Elian,28.75,Lucas,Alcazar
 1/13/2014 19:41,Frydos Autosupply n' More,188.57,Emile,Arpa
-1/13/2014 19:50,Katerina’s Café,89.83,Bertrand,Ovan
+1/13/2014 19:50,Katerina's Cafe,89.83,Bertrand,Ovan
 1/13/2014 19:59,Frydos Autosupply n' More,64.6,Linda,Lagos
-1/13/2014 19:59,Katerina’s Café,30.84,Anda,Ribera
+1/13/2014 19:59,Katerina's Cafe,30.84,Anda,Ribera
 1/13/2014 20:09,Guy's Gyros,22.34,Isia,Vann
 1/13/2014 20:11,Guy's Gyros,20.47,Edvard,Vann
 1/13/2014 20:15,Guy's Gyros,36.89,Sven,Flecha
 1/13/2014 20:18,Guy's Gyros,15.84,Inga,Ferro
-1/13/2014 20:24,Katerina’s Café,35.7,Adra,Nubarron
-1/13/2014 20:33,Katerina’s Café,91.36,Marin,Onda
+1/13/2014 20:24,Katerina's Cafe,35.7,Adra,Nubarron
+1/13/2014 20:33,Katerina's Cafe,91.36,Marin,Onda
 1/13/2014 20:35,Albert's Fine Clothing,288,Ingrid,Barranco
 1/13/2014 20:35,Hippokampos,29.22,Willem,Vasco-Pais
 1/13/2014 20:42,Hippokampos,31.59,Lars,Azada
 1/13/2014 20:42,Albert's Fine Clothing,49.48,Gustav,Cazar
 1/13/2014 20:42,Guy's Gyros,88.57,Kanon,Herrero
 1/13/2014 20:43,Ouzeri Elian,21.83,Rachel,Pantanal
-1/13/2014 20:44,Katerina’s Café,93.57,Ruscella,Mies Haber
+1/13/2014 20:44,Katerina's Cafe,93.57,Ruscella,Mies Haber
 1/13/2014 20:44,Guy's Gyros,15.55,Brand,Tempestad
 1/13/2014 20:45,Shoppers' Delight,144.4,Felix,Resumir
-1/13/2014 20:47,Katerina’s Café,22.24,Linnea,Bergen
-1/13/2014 20:51,Katerina’s Café,55.82,Nils,Calixto
+1/13/2014 20:47,Katerina's Cafe,22.24,Linnea,Bergen
+1/13/2014 20:51,Katerina's Cafe,55.82,Nils,Calixto
 1/13/2014 20:59,Guy's Gyros,37.5,Hideki,Cocinaro
-1/13/2014 21:00,Katerina’s Café,27.59,Lidelse,Dedos
+1/13/2014 21:00,Katerina's Cafe,27.59,Lidelse,Dedos
 1/13/2014 21:08,Guy's Gyros,19.77,Cornelia,Lais
 1/13/2014 21:11,Frydos Autosupply n' More,202.05,Carla,Forluniau
 1/13/2014 21:12,Hippokampos,31.47,Ada,Campo-Corrente
 1/13/2014 21:13,Hippokampos,32.29,Varro,Awelon
-1/13/2014 21:16,Katerina’s Café,33.11,Hennie,Osvaldo
+1/13/2014 21:16,Katerina's Cafe,33.11,Hennie,Osvaldo
 1/13/2014 21:27,Hippokampos,99.63,Orhan,Strum
 1/14/2014 7:27,Brew've Been Served,14.67,Cornelia,Lais
 1/14/2014 7:31,Brew've Been Served,4.72,Edvard,Vann
@@ -922,20 +922,20 @@ timestamp,location,price,FirstName,LastName
 1/14/2014 12:30,Abila Airport,228.41,Henk,Mies
 1/14/2014 13:00,Nationwide Refinery,1341.01,Benito,Hawelon
 1/14/2014 13:06,Abila Airport,3379.21,Dylan,Scozzese
-1/14/2014 13:14,Katerina’s Café,29.12,Orhan,Strum
+1/14/2014 13:14,Katerina's Cafe,29.12,Orhan,Strum
 1/14/2014 13:17,Hippokampos,36.01,Linnea,Bergen
 1/14/2014 13:17,Chostus Hotel,109.54,Isande,Borrasca
-1/14/2014 13:21,Katerina’s Café,34.45,Valeria,Morlun
+1/14/2014 13:21,Katerina's Cafe,34.45,Valeria,Morlun
 1/14/2014 13:21,Chostus Hotel,113.08,Brand,Tempestad
-1/14/2014 13:22,Katerina’s Café,10.03,Vira,Frente
+1/14/2014 13:22,Katerina's Cafe,10.03,Vira,Frente
 1/14/2014 13:24,Kalami Kafenion,17.38,Felix,Balas
 1/14/2014 13:24,Kalami Kafenion,15.15,Ada,Campo-Corrente
 1/14/2014 13:25,Hippokampos,23.69,Ingrid,Barranco
 1/14/2014 13:32,Gelatogalore,27.26,Sven,Flecha
 1/14/2014 13:32,Gelatogalore,32.82,Adra,Nubarron
-1/14/2014 13:32,Katerina’s Café,20.95,Isia,Vann
+1/14/2014 13:32,Katerina's Cafe,20.95,Isia,Vann
 1/14/2014 13:33,Gelatogalore,39.17,Willem,Vasco-Pais
-1/14/2014 13:34,Katerina’s Café,29.1,Edvard,Vann
+1/14/2014 13:34,Katerina's Cafe,29.1,Edvard,Vann
 1/14/2014 13:35,Abila Zacharo,31.09,Linda,Lagos
 1/14/2014 13:35,Abila Zacharo,15.26,Hennie,Osvaldo
 1/14/2014 13:36,Guy's Gyros,13.27,Lars,Azada
@@ -945,10 +945,10 @@ timestamp,location,price,FirstName,LastName
 1/14/2014 13:40,Ouzeri Elian,107.32,Varja,Lagos
 1/14/2014 13:40,Kalami Kafenion,33.13,Ruscella,Mies Haber
 1/14/2014 13:41,Ouzeri Elian,79.58,Isak,Baza
-1/14/2014 13:41,Katerina’s Café,75.46,Bertrand,Ovan
+1/14/2014 13:41,Katerina's Cafe,75.46,Bertrand,Ovan
 1/14/2014 13:42,Hippokampos,98.81,Nils,Calixto
 1/14/2014 13:42,Kalami Kafenion,23.1,Kare,Orilla
-1/14/2014 13:43,Katerina’s Café,31.69,Anda,Ribera
+1/14/2014 13:43,Katerina's Cafe,31.69,Anda,Ribera
 1/14/2014 13:44,Guy's Gyros,16.35,Lidelse,Dedos
 1/14/2014 13:49,Gelatogalore,70.98,Axel,Calzas
 1/14/2014 13:49,Guy's Gyros,38.26,Birgitta,Frente
@@ -958,7 +958,7 @@ timestamp,location,price,FirstName,LastName
 1/14/2014 13:53,Ouzeri Elian,33.67,Rachel,Pantanal
 1/14/2014 13:57,Gelatogalore,35.97,Cornelia,Lais
 1/14/2014 13:57,Hippokampos,17.18,Felix,Resumir
-1/14/2014 13:58,Katerina’s Café,33.54,Inga,Ferro
+1/14/2014 13:58,Katerina's Cafe,33.54,Inga,Ferro
 1/14/2014 13:59,Guy's Gyros,50.4,Kanon,Herrero
 1/14/2014 14:01,Ouzeri Elian,19.7,Varro,Awelon
 1/14/2014 14:03,Gelatogalore,102.03,Emile,Arpa
@@ -974,29 +974,29 @@ timestamp,location,price,FirstName,LastName
 1/14/2014 19:59,Guy's Gyros,94.26,Hideki,Cocinaro
 1/14/2014 20:01,Guy's Gyros,23.59,Edvard,Vann
 1/14/2014 20:05,Albert's Fine Clothing,50.77,Varja,Lagos
-1/14/2014 20:09,Katerina’s Café,91.8,Nils,Calixto
-1/14/2014 20:15,Katerina’s Café,27.67,Emile,Arpa
+1/14/2014 20:09,Katerina's Cafe,91.8,Nils,Calixto
+1/14/2014 20:15,Katerina's Cafe,27.67,Emile,Arpa
 1/14/2014 20:15,Guy's Gyros,18.11,Stenig,Fusil
 1/14/2014 20:17,Guy's Gyros,35.12,Cornelia,Lais
-1/14/2014 20:17,Katerina’s Café,36.95,Bertrand,Ovan
+1/14/2014 20:17,Katerina's Cafe,36.95,Bertrand,Ovan
 1/14/2014 20:19,Guy's Gyros,12.96,Sven,Flecha
-1/14/2014 20:19,Katerina’s Café,31.94,Ruscella,Mies Haber
+1/14/2014 20:19,Katerina's Cafe,31.94,Ruscella,Mies Haber
 1/14/2014 20:22,Hippokampos,9.55,Willem,Vasco-Pais
 1/14/2014 20:25,Guy's Gyros,10.85,Loreto,Bodrogi
-1/14/2014 20:26,Katerina’s Café,12.65,Lidelse,Dedos
+1/14/2014 20:26,Katerina's Cafe,12.65,Lidelse,Dedos
 1/14/2014 20:29,Guy's Gyros,25.28,Inga,Ferro
 1/14/2014 20:32,Ouzeri Elian,11.86,Isak,Baza
 1/14/2014 20:33,Frydos Autosupply n' More,42.72,Minke,Mies
-1/14/2014 20:34,Katerina’s Café,11.89,Kare,Orilla
+1/14/2014 20:34,Katerina's Cafe,11.89,Kare,Orilla
 1/14/2014 20:41,Ouzeri Elian,24.06,Elsa,Orilla
-1/14/2014 20:42,Katerina’s Café,46.61,Dante,Coginian
+1/14/2014 20:42,Katerina's Cafe,46.61,Dante,Coginian
 1/14/2014 20:43,Frydos Autosupply n' More,146.74,Felix,Resumir
 1/14/2014 20:46,Ouzeri Elian,80.95,Rachel,Pantanal
 1/14/2014 20:48,Hippokampos,43.56,Ada,Campo-Corrente
 1/14/2014 20:50,Albert's Fine Clothing,228.72,Felix,Balas
-1/14/2014 20:50,Katerina’s Café,25.4,Linda,Lagos
+1/14/2014 20:50,Katerina's Cafe,25.4,Linda,Lagos
 1/14/2014 21:04,Hippokampos,28.45,Vira,Frente
-1/14/2014 21:10,Katerina’s Café,18.35,Birgitta,Frente
+1/14/2014 21:10,Katerina's Cafe,18.35,Birgitta,Frente
 1/14/2014 21:14,Roberts and Sons,223.81,Hennie,Osvaldo
 1/14/2014 21:28,Frydos Autosupply n' More,49.21,Mat,Bramar
 1/14/2014 21:31,Hippokampos,22.13,Isande,Borrasca
@@ -1051,14 +1051,14 @@ timestamp,location,price,FirstName,LastName
 1/15/2014 13:10,Ouzeri Elian,8.93,Linnea,Bergen
 1/15/2014 13:12,Hippokampos,36.7,Ada,Campo-Corrente
 1/15/2014 13:12,Hippokampos,118.89,Brand,Tempestad
-1/15/2014 13:13,Katerina’s Café,24.15,Valeria,Morlun
-1/15/2014 13:17,Katerina’s Café,88.56,Carla,Forluniau
+1/15/2014 13:13,Katerina's Cafe,24.15,Valeria,Morlun
+1/15/2014 13:17,Katerina's Cafe,88.56,Carla,Forluniau
 1/15/2014 13:22,Guy's Gyros,14.37,Lars,Azada
 1/15/2014 13:22,Abila Zacharo,31,Nils,Calixto
 1/15/2014 13:22,Ouzeri Elian,12.9,Varja,Lagos
 1/15/2014 13:24,Hippokampos,13,Isak,Baza
 1/15/2014 13:26,Abila Zacharo,23.51,Ingrid,Barranco
-1/15/2014 13:27,Katerina’s Café,55.6,Kanon,Herrero
+1/15/2014 13:27,Katerina's Cafe,55.6,Kanon,Herrero
 1/15/2014 13:31,Ouzeri Elian,36.47,Gustav,Cazar
 1/15/2014 13:35,Kalami Kafenion,26.17,Lidelse,Dedos
 1/15/2014 13:36,Kalami Kafenion,37.15,Linda,Lagos
@@ -1083,7 +1083,7 @@ timestamp,location,price,FirstName,LastName
 1/15/2014 13:58,Abila Zacharo,33.8,Bertrand,Ovan
 1/15/2014 13:59,Gelatogalore,42.36,Rachel,Pantanal
 1/15/2014 14:00,Guy's Gyros,25.58,Birgitta,Frente
-1/15/2014 14:00,Katerina’s Café,12.12,Marin,Onda
+1/15/2014 14:00,Katerina's Cafe,12.12,Marin,Onda
 1/15/2014 14:02,Hippokampos,118.23,Minke,Mies
 1/15/2014 14:02,Abila Zacharo,24.53,Kare,Orilla
 1/15/2014 14:04,Abila Zacharo,46.82,Mat,Bramar
@@ -1094,38 +1094,38 @@ timestamp,location,price,FirstName,LastName
 1/15/2014 15:40,Abila Airport,875.87,Henk,Mies
 1/15/2014 17:01,Carlyle Chemical Inc.,1392.73,Valeria,Morlun
 1/15/2014 19:18,Ouzeri Elian,28.86,Elsa,Orilla
-1/15/2014 19:50,Katerina’s Café,39.23,Kare,Orilla
+1/15/2014 19:50,Katerina's Cafe,39.23,Kare,Orilla
 1/15/2014 19:52,Frydos Autosupply n' More,18.91,Isande,Borrasca
 1/15/2014 19:53,Guy's Gyros,98.04,Varja,Lagos
 1/15/2014 19:55,Hippokampos,13.02,Lars,Azada
 1/15/2014 19:55,Guy's Gyros,31.04,Minke,Mies
 1/15/2014 19:56,General Grocer,126.2,Inga,Ferro
-1/15/2014 19:59,Katerina’s Café,25.08,Emile,Arpa
-1/15/2014 20:00,Katerina’s Café,29.84,Adra,Nubarron
+1/15/2014 19:59,Katerina's Cafe,25.08,Emile,Arpa
+1/15/2014 20:00,Katerina's Cafe,29.84,Adra,Nubarron
 1/15/2014 20:02,Guy's Gyros,28.75,Isia,Vann
 1/15/2014 20:04,Frydos Autosupply n' More,235.27,Brand,Tempestad
-1/15/2014 20:05,Katerina’s Café,11.45,Birgitta,Frente
+1/15/2014 20:05,Katerina's Cafe,11.45,Birgitta,Frente
 1/15/2014 20:06,Guy's Gyros,44.91,Cornelia,Lais
 1/15/2014 20:08,Guy's Gyros,36.35,Stenig,Fusil
 1/15/2014 20:10,Hippokampos,35.12,Felix,Balas
 1/15/2014 20:10,Shoppers' Delight,162,Ada,Campo-Corrente
 1/15/2014 20:16,Hippokampos,11.8,Ingrid,Barranco
-1/15/2014 20:17,Katerina’s Café,29.33,Linda,Lagos
+1/15/2014 20:17,Katerina's Cafe,29.33,Linda,Lagos
 1/15/2014 20:23,Hippokampos,10.35,Gustav,Cazar
-1/15/2014 20:23,Katerina’s Café,39.63,Marin,Onda
+1/15/2014 20:23,Katerina's Cafe,39.63,Marin,Onda
 1/15/2014 20:24,Hippokampos,16.37,Axel,Calzas
-1/15/2014 20:26,Katerina’s Café,61.61,Dante,Coginian
+1/15/2014 20:26,Katerina's Cafe,61.61,Dante,Coginian
 1/15/2014 20:29,Ouzeri Elian,23.18,Isak,Baza
-1/15/2014 20:29,Katerina’s Café,29.66,Carla,Forluniau
+1/15/2014 20:29,Katerina's Cafe,29.66,Carla,Forluniau
 1/15/2014 20:33,Frydos Autosupply n' More,18.66,Lidelse,Dedos
 1/15/2014 20:46,Albert's Fine Clothing,228.15,Varro,Awelon
 1/15/2014 20:57,Frydos Autosupply n' More,276.88,Mat,Bramar
 1/15/2014 20:59,Guy's Gyros,61.43,Loreto,Bodrogi
-1/15/2014 21:05,Katerina’s Café,13.77,Linnea,Bergen
+1/15/2014 21:05,Katerina's Cafe,13.77,Linnea,Bergen
 1/15/2014 21:05,Guy's Gyros,27.01,Kanon,Herrero
 1/15/2014 21:05,Ouzeri Elian,8.57,Rachel,Pantanal
 1/15/2014 21:08,Hippokampos,101.14,Vira,Frente
-1/15/2014 21:21,Katerina’s Café,27.48,Bertrand,Ovan
+1/15/2014 21:21,Katerina's Cafe,27.48,Bertrand,Ovan
 1/15/2014 21:42,Hippokampos,37.16,Orhan,Strum
 1/16/2014 7:30,Kronos Mart,298.83,Hideki,Cocinaro
 1/16/2014 7:33,Brew've Been Served,25.05,Cornelia,Lais
@@ -1177,17 +1177,17 @@ timestamp,location,price,FirstName,LastName
 1/16/2014 12:00,Jack's Magical Beans,6.95,Willem,Vasco-Pais
 1/16/2014 12:32,Nationwide Refinery,2047.28,Benito,Hawelon
 1/16/2014 12:40,Abila Airport,3917.3,Henk,Mies
-1/16/2014 13:17,Katerina’s Café,11.08,Brand,Tempestad
-1/16/2014 13:19,Katerina’s Café,27.82,Ingrid,Barranco
+1/16/2014 13:17,Katerina's Cafe,11.08,Brand,Tempestad
+1/16/2014 13:19,Katerina's Cafe,27.82,Ingrid,Barranco
 1/16/2014 13:19,Hippokampos,17.66,Ada,Campo-Corrente
 1/16/2014 13:22,Abila Zacharo,64.71,Kanon,Herrero
 1/16/2014 13:22,Abila Airport,3138.98,Dylan,Scozzese
 1/16/2014 13:22,Hippokampos,26.15,Orhan,Strum
 1/16/2014 13:23,Guy's Gyros,31.48,Nils,Calixto
-1/16/2014 13:23,Katerina’s Café,34.9,Valeria,Morlun
+1/16/2014 13:23,Katerina's Cafe,34.9,Valeria,Morlun
 1/16/2014 13:26,Hippokampos,36.17,Isak,Baza
-1/16/2014 13:27,Katerina’s Café,34.02,Varja,Lagos
-1/16/2014 13:27,Katerina’s Café,39.74,Ruscella,Mies Haber
+1/16/2014 13:27,Katerina's Cafe,34.02,Varja,Lagos
+1/16/2014 13:27,Katerina's Cafe,39.74,Ruscella,Mies Haber
 1/16/2014 13:27,Abila Zacharo,31.31,Bertrand,Ovan
 1/16/2014 13:28,Guy's Gyros,10.27,Lucas,Alcazar
 1/16/2014 13:30,Hippokampos,16.53,Linnea,Bergen
@@ -1199,7 +1199,7 @@ timestamp,location,price,FirstName,LastName
 1/16/2014 13:39,Abila Zacharo,69.27,Edvard,Vann
 1/16/2014 13:42,Guy's Gyros,29.7,Inga,Ferro
 1/16/2014 13:43,Hippokampos,14.89,Gustav,Cazar
-1/16/2014 13:43,Katerina’s Café,38.32,Cornelia,Lais
+1/16/2014 13:43,Katerina's Cafe,38.32,Cornelia,Lais
 1/16/2014 13:44,Guy's Gyros,13.48,Stenig,Fusil
 1/16/2014 13:44,Hippokampos,18.18,Isia,Vann
 1/16/2014 13:45,Ouzeri Elian,12.47,Loreto,Bodrogi
@@ -1222,37 +1222,37 @@ timestamp,location,price,FirstName,LastName
 1/16/2014 16:56,Abila Scrapyard,1897.05,Dylan,Scozzese
 1/16/2014 17:07,Gelatogalore,10.62,Minke,Mies
 1/16/2014 17:17,Carlyle Chemical Inc.,1814.24,Valeria,Morlun
-1/16/2014 18:49,Katerina’s Café,93.68,Linda,Lagos
+1/16/2014 18:49,Katerina's Cafe,93.68,Linda,Lagos
 1/16/2014 19:04,Guy's Gyros,25.57,Sven,Flecha
 1/16/2014 19:09,Guy's Gyros,8.31,Varja,Lagos
-1/16/2014 19:39,Katerina’s Café,10.93,Nils,Calixto
+1/16/2014 19:39,Katerina's Cafe,10.93,Nils,Calixto
 1/16/2014 19:40,Guy's Gyros,37.8,Edvard,Vann
 1/16/2014 19:45,Frydos Autosupply n' More,53.37,Lidelse,Dedos
-1/16/2014 19:47,Katerina’s Café,34.34,Bertrand,Ovan
-1/16/2014 20:05,Katerina’s Café,69.3,Ruscella,Mies Haber
+1/16/2014 19:47,Katerina's Cafe,34.34,Bertrand,Ovan
+1/16/2014 20:05,Katerina's Cafe,69.3,Ruscella,Mies Haber
 1/16/2014 20:08,Albert's Fine Clothing,283.38,Varro,Awelon
-1/16/2014 20:09,Katerina’s Café,18.79,Emile,Arpa
+1/16/2014 20:09,Katerina's Cafe,18.79,Emile,Arpa
 1/16/2014 20:09,Guy's Gyros,28.27,Felix,Resumir
 1/16/2014 20:13,Hippokampos,29.13,Gustav,Cazar
 1/16/2014 20:14,Guy's Gyros,111.31,Brand,Tempestad
 1/16/2014 20:17,Guy's Gyros,25.78,Loreto,Bodrogi
 1/16/2014 20:17,Guy's Gyros,30.76,Stenig,Fusil
-1/16/2014 20:23,Katerina’s Café,13.91,Birgitta,Frente
+1/16/2014 20:23,Katerina's Cafe,13.91,Birgitta,Frente
 1/16/2014 20:25,Ouzeri Elian,23.89,Isak,Baza
 1/16/2014 20:25,Albert's Fine Clothing,91.71,Inga,Ferro
-1/16/2014 20:25,Katerina’s Café,35.43,Carla,Forluniau
+1/16/2014 20:25,Katerina's Cafe,35.43,Carla,Forluniau
 1/16/2014 20:25,Roberts and Sons,155.76,Minke,Mies
 1/16/2014 20:25,Ouzeri Elian,22.65,Rachel,Pantanal
 1/16/2014 20:28,Ouzeri Elian,9.91,Lucas,Alcazar
-1/16/2014 20:28,Katerina’s Café,30.84,Hennie,Osvaldo
+1/16/2014 20:28,Katerina's Cafe,30.84,Hennie,Osvaldo
 1/16/2014 20:35,Guy's Gyros,11.31,Hideki,Cocinaro
-1/16/2014 20:36,Katerina’s Café,19.44,Adra,Nubarron
-1/16/2014 20:39,Katerina’s Café,30.56,Dante,Coginian
+1/16/2014 20:36,Katerina's Cafe,19.44,Adra,Nubarron
+1/16/2014 20:39,Katerina's Cafe,30.56,Dante,Coginian
 1/16/2014 20:42,Hippokampos,114,Vira,Frente
 1/16/2014 20:43,Hippokampos,27.74,Willem,Vasco-Pais
 1/16/2014 20:45,Shoppers' Delight,160.69,Axel,Calzas
 1/16/2014 20:50,Shoppers' Delight,16.84,Kanon,Herrero
-1/16/2014 20:51,Katerina’s Café,34.58,Kare,Orilla
+1/16/2014 20:51,Katerina's Cafe,34.58,Kare,Orilla
 1/16/2014 20:52,Roberts and Sons,240.66,Isia,Vann
 1/16/2014 20:54,Frydos Autosupply n' More,130.01,Mat,Bramar
 1/16/2014 20:58,Hippokampos,12.47,Ada,Campo-Corrente
@@ -1318,16 +1318,16 @@ timestamp,location,price,FirstName,LastName
 1/17/2014 13:39,Kalami Kafenion,27.7,Hennie,Osvaldo
 1/17/2014 13:40,Gelatogalore,37.3,Marin,Onda
 1/17/2014 13:41,Abila Zacharo,14.51,Adra,Nubarron
-1/17/2014 13:42,Katerina’s Café,21.01,Bertrand,Ovan
+1/17/2014 13:42,Katerina's Cafe,21.01,Bertrand,Ovan
 1/17/2014 13:45,Abila Zacharo,79.67,Isia,Vann
 1/17/2014 13:47,Gelatogalore,18.1,Rachel,Pantanal
-1/17/2014 13:48,Katerina’s Café,13.11,Gustav,Cazar
+1/17/2014 13:48,Katerina's Cafe,13.11,Gustav,Cazar
 1/17/2014 13:49,Chostus Hotel,114.22,Brand,Tempestad
 1/17/2014 13:51,Kalami Kafenion,20.02,Lidelse,Dedos
 1/17/2014 13:51,Gelatogalore,34.59,Inga,Ferro
 1/17/2014 13:52,Hippokampos,108.35,Birgitta,Frente
 1/17/2014 13:53,Kalami Kafenion,24.21,Linda,Lagos
-1/17/2014 13:53,Katerina’s Café,35.52,Minke,Mies
+1/17/2014 13:53,Katerina's Cafe,35.52,Minke,Mies
 1/17/2014 13:54,Chostus Hotel,159.62,Isande,Borrasca
 1/17/2014 13:55,Guy's Gyros,32.31,Felix,Resumir
 1/17/2014 13:57,Gelatogalore,21.62,Kare,Orilla
@@ -1336,37 +1336,37 @@ timestamp,location,price,FirstName,LastName
 1/17/2014 14:00,Guy's Gyros,15.12,Dante,Coginian
 1/17/2014 14:05,Guy's Gyros,21.1,Varro,Awelon
 1/17/2014 14:06,Abila Zacharo,51.95,Cornelia,Lais
-1/17/2014 14:15,Katerina’s Café,70.72,Mat,Bramar
+1/17/2014 14:15,Katerina's Cafe,70.72,Mat,Bramar
 1/17/2014 14:32,Ouzeri Elian,26.1,Emile,Arpa
-1/17/2014 19:24,Katerina’s Café,22.18,Kare,Orilla
+1/17/2014 19:24,Katerina's Cafe,22.18,Kare,Orilla
 1/17/2014 19:29,Guy's Gyros,19.68,Stenig,Fusil
 1/17/2014 19:40,Hippokampos,19.76,Varro,Awelon
 1/17/2014 19:40,Ouzeri Elian,38.6,Isak,Baza
 1/17/2014 19:44,Albert's Fine Clothing,39.41,Gustav,Cazar
 1/17/2014 19:46,Guy's Gyros,16.83,Felix,Resumir
 1/17/2014 19:53,Guy's Gyros,35.1,Edvard,Vann
-1/17/2014 19:57,Katerina’s Café,34.93,Emile,Arpa
+1/17/2014 19:57,Katerina's Cafe,34.93,Emile,Arpa
 1/17/2014 19:57,Frydos Autosupply n' More,124.52,Mat,Bramar
 1/17/2014 20:03,Hippokampos,8.92,Isande,Borrasca
 1/17/2014 20:05,Shoppers' Delight,155.01,Sven,Flecha
-1/17/2014 20:07,Katerina’s Café,21.22,Marin,Onda
+1/17/2014 20:07,Katerina's Cafe,21.22,Marin,Onda
 1/17/2014 20:07,Ouzeri Elian,70.21,Elsa,Orilla
 1/17/2014 20:16,Guy's Gyros,37.55,Varja,Lagos
-1/17/2014 20:19,Katerina’s Café,36.12,Dante,Coginian
-1/17/2014 20:20,Katerina’s Café,19.09,Linnea,Bergen
+1/17/2014 20:19,Katerina's Cafe,36.12,Dante,Coginian
+1/17/2014 20:20,Katerina's Cafe,19.09,Linnea,Bergen
 1/17/2014 20:21,Guy's Gyros,8.31,Inga,Ferro
 1/17/2014 20:21,Shoppers' Delight,289.33,Kanon,Herrero
 1/17/2014 20:24,Guy's Gyros,8.54,Loreto,Bodrogi
-1/17/2014 20:24,Katerina’s Café,72.13,Nils,Calixto
+1/17/2014 20:24,Katerina's Cafe,72.13,Nils,Calixto
 1/17/2014 20:28,Ouzeri Elian,35.81,Lucas,Alcazar
 1/17/2014 20:35,Ouzeri Elian,26.4,Rachel,Pantanal
 1/17/2014 20:41,General Grocer,98.03,Hideki,Cocinaro
 1/17/2014 20:41,Frydos Autosupply n' More,260.08,Isia,Vann
 1/17/2014 20:54,Hippokampos,11.93,Ingrid,Barranco
-1/17/2014 20:58,Katerina’s Café,38.21,Adra,Nubarron
+1/17/2014 20:58,Katerina's Cafe,38.21,Adra,Nubarron
 1/17/2014 20:59,Guy's Gyros,29.71,Brand,Tempestad
-1/17/2014 21:05,Katerina’s Café,33.73,Ruscella,Mies Haber
-1/17/2014 21:06,Katerina’s Café,27.49,Hennie,Osvaldo
+1/17/2014 21:05,Katerina's Cafe,33.73,Ruscella,Mies Haber
+1/17/2014 21:06,Katerina's Cafe,27.49,Hennie,Osvaldo
 1/17/2014 21:07,Guy's Gyros,55.4,Minke,Mies
 1/17/2014 21:15,Frydos Autosupply n' More,67.29,Cornelia,Lais
 1/17/2014 21:29,Hippokampos,38.19,Willem,Vasco-Pais
@@ -1374,7 +1374,7 @@ timestamp,location,price,FirstName,LastName
 1/18/2014 12:03,Chostus Hotel,600,Sten,Sanjorge Jr.
 1/18/2014 13:04,Abila Zacharo,111.93,Orhan,Strum
 1/18/2014 13:05,Abila Zacharo,25.59,Isande,Borrasca
-1/18/2014 13:15,Katerina’s Café,34.54,Anda,Ribera
+1/18/2014 13:15,Katerina's Cafe,34.54,Anda,Ribera
 1/18/2014 13:18,Ouzeri Elian,33.57,Vira,Frente
 1/18/2014 13:19,Kalami Kafenion,30.12,Cornelia,Lais
 1/18/2014 13:21,Hippokampos,100.11,Axel,Calzas
@@ -1383,15 +1383,15 @@ timestamp,location,price,FirstName,LastName
 1/18/2014 13:28,Guy's Gyros,27.4,Lidelse,Dedos
 1/18/2014 13:28,Kalami Kafenion,38.91,Willem,Vasco-Pais
 1/18/2014 13:32,Abila Zacharo,16.59,Lucas,Alcazar
-1/18/2014 13:34,Katerina’s Café,19.3,Varja,Lagos
+1/18/2014 13:34,Katerina's Cafe,19.3,Varja,Lagos
 1/18/2014 13:34,Ouzeri Elian,25.75,Bertrand,Ovan
 1/18/2014 13:58,Kalami Kafenion,24.14,Gustav,Cazar
 1/18/2014 13:58,Gelatogalore,84.38,Rachel,Pantanal
-1/18/2014 14:00,Katerina’s Café,37.26,Linda,Lagos
+1/18/2014 14:00,Katerina's Cafe,37.26,Linda,Lagos
 1/18/2014 14:02,Kalami Kafenion,42.73,Dante,Coginian
-1/18/2014 14:03,Katerina’s Café,96.36,Ingrid,Barranco
+1/18/2014 14:03,Katerina's Cafe,96.36,Ingrid,Barranco
 1/18/2014 14:05,Guy's Gyros,47.89,Birgitta,Frente
-1/18/2014 14:06,Katerina’s Café,24.14,Inga,Ferro
+1/18/2014 14:06,Katerina's Cafe,24.14,Inga,Ferro
 1/18/2014 14:17,Kalami Kafenion,53.36,Felix,Resumir
 1/18/2014 14:51,Ahaggo Museum,55.55,Kanon,Herrero
 1/18/2014 14:55,Ahaggo Museum,120.2,Sven,Flecha
@@ -1408,37 +1408,37 @@ timestamp,location,price,FirstName,LastName
 1/18/2014 18:51,Frydos Autosupply n' More,234.53,Ruscella,Mies Haber
 1/18/2014 18:59,Albert's Fine Clothing,226.49,Orhan,Strum
 1/18/2014 19:08,Guy's Gyros,39.68,Varja,Lagos
-1/18/2014 19:17,Katerina’s Café,21.63,Emile,Arpa
+1/18/2014 19:17,Katerina's Cafe,21.63,Emile,Arpa
 1/18/2014 19:20,Roberts and Sons,266.69,Birgitta,Frente
 1/18/2014 19:21,Ouzeri Elian,57.63,Isak,Baza
 1/18/2014 19:21,Hippokampos,21.34,Gustav,Cazar
 1/18/2014 19:21,Guy's Gyros,28.07,Cornelia,Lais
 1/18/2014 19:26,Ouzeri Elian,61.56,Lucas,Alcazar
-1/18/2014 19:30,Katerina’s Café,8.14,Nils,Calixto
-1/18/2014 19:31,Katerina’s Café,22.74,Lidelse,Dedos
-1/18/2014 19:32,Katerina’s Café,33.41,Minke,Mies
+1/18/2014 19:30,Katerina's Cafe,8.14,Nils,Calixto
+1/18/2014 19:31,Katerina's Cafe,22.74,Lidelse,Dedos
+1/18/2014 19:32,Katerina's Cafe,33.41,Minke,Mies
 1/18/2014 19:35,Hippokampos,27.21,Vira,Frente
-1/18/2014 19:36,Katerina’s Café,35.79,Anda,Ribera
+1/18/2014 19:36,Katerina's Cafe,35.79,Anda,Ribera
 1/18/2014 19:36,Abila Zacharo,21.29,Edvard,Vann
 1/18/2014 19:36,Hippokampos,53.21,Willem,Vasco-Pais
 1/18/2014 19:39,Kalami Kafenion,71.14,Felix,Balas
 1/18/2014 19:39,Guy's Gyros,78.36,Stenig,Fusil
 1/18/2014 19:42,Hippokampos,63.21,Ada,Campo-Corrente
 1/18/2014 19:46,Roberts and Sons,125.35,Ingrid,Barranco
-1/18/2014 19:46,Katerina’s Café,11.19,Dante,Coginian
+1/18/2014 19:46,Katerina's Cafe,11.19,Dante,Coginian
 1/18/2014 19:46,Ouzeri Elian,14.9,Rachel,Pantanal
-1/18/2014 19:47,Katerina’s Café,16.48,Mat,Bramar
-1/18/2014 19:53,Katerina’s Café,76.1,Bertrand,Ovan
-1/18/2014 19:54,Katerina’s Café,33.63,Marin,Onda
-1/18/2014 19:56,Katerina’s Café,32.68,Carla,Forluniau
+1/18/2014 19:47,Katerina's Cafe,16.48,Mat,Bramar
+1/18/2014 19:53,Katerina's Cafe,76.1,Bertrand,Ovan
+1/18/2014 19:54,Katerina's Cafe,33.63,Marin,Onda
+1/18/2014 19:56,Katerina's Cafe,32.68,Carla,Forluniau
 1/18/2014 20:01,Hippokampos,49.21,Kanon,Herrero
-1/18/2014 20:01,Katerina’s Café,17.37,Hennie,Osvaldo
-1/18/2014 20:04,Katerina’s Café,45.88,Linda,Lagos
+1/18/2014 20:01,Katerina's Cafe,17.37,Hennie,Osvaldo
+1/18/2014 20:04,Katerina's Cafe,45.88,Linda,Lagos
 1/18/2014 20:07,General Grocer,108.49,Felix,Resumir
-1/18/2014 20:09,Katerina’s Café,19.31,Isia,Vann
+1/18/2014 20:09,Katerina's Cafe,19.31,Isia,Vann
 1/18/2014 20:11,Hippokampos,72.5,Lars,Azada
-1/18/2014 20:13,Katerina’s Café,9.72,Loreto,Bodrogi
-1/18/2014 20:15,Katerina’s Café,37.21,Inga,Ferro
+1/18/2014 20:13,Katerina's Cafe,9.72,Loreto,Bodrogi
+1/18/2014 20:15,Katerina's Cafe,37.21,Inga,Ferro
 1/18/2014 20:23,Hippokampos,29.21,Axel,Calzas
 1/18/2014 20:26,Hippokampos,55.03,Varro,Awelon
 1/19/2014 3:13,Kronos Mart,87.66,Varja,Lagos
@@ -1446,17 +1446,17 @@ timestamp,location,price,FirstName,LastName
 1/19/2014 3:48,Kronos Mart,150.36,Ada,Campo-Corrente
 1/19/2014 12:41,Desafio Golf Course,150.07,Orhan,Strum
 1/19/2014 12:57,Desafio Golf Course,145.72,Ingrid,Barranco
-1/19/2014 13:00,Katerina’s Café,35.01,Isia,Vann
+1/19/2014 13:00,Katerina's Cafe,35.01,Isia,Vann
 1/19/2014 13:09,Gelatogalore,22.36,Vira,Frente
-1/19/2014 13:23,Katerina’s Café,70.22,Edvard,Vann
+1/19/2014 13:23,Katerina's Cafe,70.22,Edvard,Vann
 1/19/2014 13:26,Ahaggo Museum,26.91,Elsa,Orilla
 1/19/2014 13:27,Ouzeri Elian,23.65,Varja,Lagos
 1/19/2014 13:33,Hippokampos,64.37,Adra,Nubarron
 1/19/2014 13:51,Desafio Golf Course,190.91,Ada,Campo-Corrente
-1/19/2014 13:53,Katerina’s Café,26.76,Minke,Mies
-1/19/2014 14:01,Katerina’s Café,12.78,Marin,Onda
+1/19/2014 13:53,Katerina's Cafe,26.76,Minke,Mies
+1/19/2014 14:01,Katerina's Cafe,12.78,Marin,Onda
 1/19/2014 14:08,Ouzeri Elian,45.32,Sven,Flecha
-1/19/2014 14:20,Katerina’s Café,54.2,Kare,Orilla
+1/19/2014 14:20,Katerina's Cafe,54.2,Kare,Orilla
 1/19/2014 14:20,Abila Zacharo,47.8,Felix,Resumir
 1/19/2014 15:03,General Grocer,70.22,Vira,Frente
 1/19/2014 15:15,Desafio Golf Course,110.02,Willem,Vasco-Pais
@@ -1464,7 +1464,7 @@ timestamp,location,price,FirstName,LastName
 1/19/2014 15:39,Albert's Fine Clothing,274.66,Adra,Nubarron
 1/19/2014 15:46,Desafio Golf Course,148.22,Sten,Sanjorge Jr.
 1/19/2014 15:53,Frydos Autosupply n' More,209.76,Edvard,Vann
-1/19/2014 18:54,Katerina’s Café,72.25,Bertrand,Ovan
+1/19/2014 18:54,Katerina's Cafe,72.25,Bertrand,Ovan
 1/19/2014 19:43,Hippokampos,101.25,Felix,Balas
 1/19/2014 19:43,Hippokampos,48.23,Ada,Campo-Corrente
 1/19/2014 19:44,Hippokampos,88.27,Gustav,Cazar
@@ -1477,16 +1477,16 @@ timestamp,location,price,FirstName,LastName
 1/19/2014 19:48,Ouzeri Elian,67.98,Isak,Baza
 1/19/2014 19:49,Ouzeri Elian,32.77,Lucas,Alcazar
 1/19/2014 19:49,Guy's Gyros,100.36,Stenig,Fusil
-1/19/2014 19:53,Katerina’s Café,34.03,Nils,Calixto
+1/19/2014 19:53,Katerina's Cafe,34.03,Nils,Calixto
 1/19/2014 19:56,Shoppers' Delight,30.39,Adra,Nubarron
 1/19/2014 19:56,Hippokampos,63.17,Willem,Vasco-Pais
 1/19/2014 20:00,Guy's Gyros,18.08,Isia,Vann
 1/19/2014 20:02,Albert's Fine Clothing,254.29,Isande,Borrasca
-1/19/2014 20:05,Katerina’s Café,33.79,Lidelse,Dedos
+1/19/2014 20:05,Katerina's Cafe,33.79,Lidelse,Dedos
 1/19/2014 20:14,Guy's Gyros,36.87,Hideki,Cocinaro
 1/19/2014 20:16,Hippokampos,78.96,Lars,Azada
 1/19/2014 20:16,Guy's Gyros,37.48,Brand,Tempestad
-1/19/2014 20:22,Katerina’s Café,38.9,Birgitta,Frente
+1/19/2014 20:22,Katerina's Cafe,38.9,Birgitta,Frente
 1/19/2014 20:25,Guy's Gyros,20.94,Loreto,Bodrogi
 1/19/2014 20:30,Guy's Gyros,31.94,Minke,Mies
 1/19/2014 20:51,Guy's Gyros,39.6,Felix,Resumir
