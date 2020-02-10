@@ -6,6 +6,8 @@ var height = document.getElementById('map-card').offsetHeight - 100;
 var projection = d3.geoMercator()
 var path = d3.geoPath().projection(projection);
 
+var gpsData;
+
 var svg = d3.select('#map-card').append('svg')
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("viewBox", "0 0 " + String(width) + " " + String(height))
@@ -19,14 +21,21 @@ var zoom = d3.zoom()
     ])
     .on("zoom", zoomed);
 
+
+$('#listOfEmployees').change(function () {
+    var selectedName = $(this).val();
+    var filteredData = gpsData.filter(d => d.id == selectedName);
+    drawRoutes(filteredData)
+});
+
 d3.queue()
     .defer(d3.json, 'data/Abila.json')
     .defer(d3.csv, 'data/gps_1.csv') //
-    // .defer(d3.csv, 'data/gps.csv')
-    // .defer(d3.csv, 'data/car-assignments.csv')
+    .defer(d3.csv, 'data/gps.csv')
+    .defer(d3.csv, 'data/car-assignments.csv')
     .await(ready);
 
-function ready(error, d, gpsWithID10) {
+function ready(error, d, gpsWithID10, gps, carAssign) {
     projection.fitExtent([
         [0, 0],
         [width, height]
@@ -37,7 +46,13 @@ function ready(error, d, gpsWithID10) {
         .enter().append('path')
         .attr('d', path)
 
-    drawRoutes(gpsWithID10)
+    gpsData = gps;
+
+    carAssign.map(d => {
+        $('#listOfEmployees').append($("<option></option>")
+            .attr("value", d.CarID)
+            .text(`${d.FirstName} ${d.LastName}`));
+    })
 
 }
 
@@ -66,7 +81,9 @@ function drawRoutes(data) {
     }
 
     // Add the path
-    employee_paths = svg.selectAll("myPath")
+    svg.selectAll('.route').remove()
+
+    employee_paths = svg.selectAll("path")
         .data(links)
         .enter()
         .append("path")
@@ -76,13 +93,12 @@ function drawRoutes(data) {
         .style("fill", "none")
         .style("stroke", "#69b3a2")
         .style("stroke-width", 3)
+        .attr('class', 'route')
 }
 
 
 //TODO: Add a zoom control to at least tell the user that zooming is available.
 svg.call(zoom);
-
-
 
 function zoomed() {
     view.attr("transform", d3.event.transform);
