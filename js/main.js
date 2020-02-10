@@ -66,7 +66,7 @@ function drawRoutes(data) {
     }
 
     // Add the path
-    svg.selectAll("myPath")
+    employee_paths = svg.selectAll("myPath")
         .data(links)
         .enter()
         .append("path")
@@ -86,6 +86,7 @@ svg.call(zoom);
 
 function zoomed() {
     view.attr("transform", d3.event.transform);
+    employee_paths.attr("transform", d3.event.transform);
 }
 
 function resetted() {
