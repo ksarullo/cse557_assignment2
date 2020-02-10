@@ -29,10 +29,10 @@ d3.csv('data/cc_data.csv')
         });
 
         // Get location keys and values
-        var locations = d3.values(sorted_by_loc).map(function (d) {
+        var unsorted_locations = d3.values(sorted_by_loc).map(function (d) {
             return d.key;
         });
-        locations = locations.sort();
+        locations = unsorted_locations.sort();
         allLocations = locations;
 
         var trans_per_loc = d3.values(locations).map(function (d) {
@@ -44,38 +44,42 @@ d3.csv('data/cc_data.csv')
 
         // Create dropdown
         var filter_div = d3.select("#pills-filter");
-        filter_div.append("p").text("Choose a location:");
+        filter_div.append("p").text("Or choose a location:");
         var select = filter_div.append('select')
             .attr('id','location-select')
+            .attr('class', 'form-control')
             .on('change',function() {
                 d3.select('[id="' + lastLocationSelection + '-Transactions"]').style("display", "none");
                 d3.select('[id="' + lastLocationSelection + '-Loyalty"]').style("display", "none");
                 d3.select('[id="' + lastLocationSelection + '-Transactions-Graph"]').style("display", "none");
                 d3.select('[id="' + lastPersonSelection + '-Transactions-Per-Person"]').style("display", "none");
                 d3.select('[id="' + lastPersonSelection + '-Loyalty-Per-Person"]').style("display", "none");
-                selectValue = locations.indexOf(d3.select('#location-select').property('value'));
+                selectValue = d3.select('#location-select').property('value');
                 lastLocationSelection = selectValue;
                 $('[id="' + selectValue + '-Transactions"]').remove().insertAfter($('[id="' + selectValue + '-Transactions-Graph"]'));
                 $('[id="' + selectValue + '-Loyalty"]').remove().insertAfter($('[id="' + selectValue + '-Transactions"]'));
                 d3.select('[id="' + selectValue + '-Transactions-Graph"]').style("display", "block");
                 d3.select('[id="' + selectValue + '-Transactions"]').style("display", "block");
                 d3.select('[id="' + selectValue + '-Loyalty"]').style("display", "block");
+
+                $("#person-select").prop("selectedIndex", -1);
             })
             .selectAll('option')
             .data(locations)
             .enter()
             .append('option')
-            .text(function (d) { return d; });
+            .text(function (d) { return d; })
+            .attr("value", function (d) { return d; });
 
         $("#location-select").prop("selectedIndex", -1);
 
         // Create location transaction div's
         for (var i = 0; i < locations.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", [i] + '-Transactions').style("display", "none");
+            var location_div = transaction_div.append('div').attr("id", locations[i] + '-Transactions').style("display", "none");
             location_div.append("br")
             location_div.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
             var transaction_box = location_div.append("div")
-                .style("width", 400 + 'px')
+                .style("width", 450 + 'px')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
@@ -96,9 +100,15 @@ d3.csv('data/cc_data.csv')
                 })
                 .entries(rows);
 
+            // Sort alphabetically
+            ordered = {};
+            d3.values(sorted_by_hour).map(function (d) {
+                return ordered[d.key] = d.values;
+            });
+
             // Get location keys and values
-            var hours = d3.values(sorted_by_hour).map(function (d) {
-                return d.values;
+            var hours = d3.values(locations).map(function (d) {
+                return ordered[d];
             });
 
             // Create bar graph
@@ -110,12 +120,12 @@ d3.csv('data/cc_data.csv')
             }
             var sum = 0;
             hours[i].forEach(function (item2) {
-                y[item2.key] = Math.round(item2.values.length  / 2)
+                y[item2.key] = (Math.round(item2.values.length  / 2)) + 1;
                 sum = sum + y[item2.key]
             });
 
             // Add bar chart
-            var time_v_pop_div = transaction_div.append('div').attr("id", [i] + '-Transactions-Graph').style("display", "none");;
+            var time_v_pop_div = transaction_div.append('div').attr("id", locations[i] + '-Transactions-Graph').style("display", "none");;
             time_v_pop_div.append('h2').append('b').text(locations[i]);
             time_v_pop_div.append("br").append("br");
             time_v_pop_div.append("h5").text("Time vs. Popularity").style("font-size", 12 + 'px');
@@ -192,42 +202,29 @@ d3.csv('data/cc_data.csv')
         // Select div to work in
         var transaction_div = d3.select("#pills-analysis");
 
+        d3.select('#person-select').selectAll('option')
+            .data(names)
+            .enter()
+            .append('option')
+            .text(function (d) { return d; })
+            .attr("value", function (d) { return d; });
+
+        d3.select("#person-select").property("selectedIndex", -1);
+
         // Create dropdown
         var filter_div = d3.select("#pills-filter");
         filter_div.append("br");
         filter_div.append("br");
-        filter_div.append("p").text("Or choose a person:");
-        var select = filter_div.append('select')
-            .attr('id','person-select')
-            .on('change',function() {
-                d3.select('[id="' + lastLocationSelection + '-Transactions"]').style("display", "none");
-                d3.select('[id="' + lastLocationSelection + '-Loyalty"]').style("display", "none");
-                d3.select('[id="' + lastLocationSelection + '-Transactions-Graph"]').style("display", "none");
-                d3.select('[id="' + lastPersonSelection + '-Transactions-Per-Person"]').style("display", "none");
-                d3.select('[id="' + lastPersonSelection + '-Loyalty-Per-Person"]').style("display", "none");
-                selectValue = names.indexOf(d3.select('#person-select').property('value'));
-                lastPersonSelection = selectValue;
-                $('[id="' + selectValue + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + selectValue + '-Transactions-Per-Person"]'));
-                d3.select('[id="' + selectValue + '-Transactions-Per-Person"]').style("display", "block");
-                d3.select('[id="' + selectValue + '-Loyalty-Per-Person"]').style("display", "block");
-            })
-            .selectAll('option')
-            .data(names)
-            .enter()
-            .append('option')
-            .text(function (d) { return d; });
-
-        $("#person-select").prop("selectedIndex", -1)
 
         // Create location transaction div's
         for (var i = 0; i < names.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", [i] + '-Transactions-Per-Person').style("display", "none");
+            var location_div = transaction_div.append('div').attr("id", names[i] + '-Transactions-Per-Person').style("display", "none");
             location_div.append('h2').append('b').text(names[i]);
             location_div.append("br").append("br");
 
             location_div.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
             var transaction_box = location_div.append("div")
-                .style("width", 400 + 'px')
+                .style("width", 450 + 'px')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
@@ -290,12 +287,12 @@ d3.csv('data/loyalty_data.csv')
 
         // Create location transaction div's
         for (var i = 0; i < locations.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", [i] + '-Loyalty').style("display", "none");
+            var location_div = transaction_div.append('div').attr("id", locations[i] + '-Loyalty').style("display", "none");
 
             location_div.append("br");
             location_div.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
             var transaction_box = location_div.append("div")
-                .style("width", 400 + 'px')
+                .style("width", 450 + 'px')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
@@ -348,11 +345,11 @@ d3.csv('data/loyalty_data.csv')
 
         // Create location transaction div's
         for (var i = 0; i < names.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", [i] + '-Loyalty-Per-Person').style("display", "none");
+            var location_div = transaction_div.append('div').attr("id", names[i] + '-Loyalty-Per-Person').style("display", "none");
 
             location_div.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
             var transaction_box = location_div.append("div")
-                .style("width", 400 + 'px')
+                .style("width", 450 + 'px')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')

@@ -21,12 +21,9 @@ var zoom = d3.zoom()
     ])
     .on("zoom", zoomed);
 
+car_id_to_name = {};
 
-$('#listOfEmployees').change(function () {
-    var selectedName = $(this).val();
-    var filteredData = gpsData.filter(d => d.id == selectedName);
-    drawRoutes(filteredData)
-});
+lastPersonSelection = 0;
 
 d3.queue()
     .defer(d3.json, 'data/Abila.json')
@@ -48,13 +45,33 @@ function ready(error, d, gpsWithID10, gps, carAssign) {
 
     gpsData = gps;
 
-    carAssign.map(d => {
-        $('#listOfEmployees').append($("<option></option>")
-            .attr("value", d.CarID)
-            .text(`${d.FirstName} ${d.LastName}`));
-    })
+    d3.values(carAssign).map(function (d) {
+        return car_id_to_name[d.FirstName + ' ' + d.LastName] = d.CarID;
+    });
 
-}
+    d3.select('#person-select')
+        .on('change', function() {
+            // Draw Routes
+            var selectedName = d3.select('#person-select').property('value');
+            var filteredData = gpsData.filter(d => d.id == car_id_to_name[selectedName]);
+            drawRoutes(filteredData);
+
+            // Draw Analysis
+            d3.select('[id="' + lastLocationSelection + '-Transactions"]').style("display", "none");
+            d3.select('[id="' + lastLocationSelection + '-Loyalty"]').style("display", "none");
+            d3.select('[id="' + lastLocationSelection + '-Transactions-Graph"]').style("display", "none");
+            d3.select('[id="' + lastPersonSelection + '-Transactions-Per-Person"]').style("display", "none");
+            d3.select('[id="' + lastPersonSelection + '-Loyalty-Per-Person"]').style("display", "none");
+            selectValue = d3.select('#person-select').property('value');
+            lastPersonSelection = selectValue;
+            $('[id="' + selectValue + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + selectValue + '-Transactions-Per-Person"]'));
+            d3.select('[id="' + selectValue + '-Transactions-Per-Person"]').style("display", "block");
+            d3.select('[id="' + selectValue + '-Loyalty-Per-Person"]').style("display", "block");
+
+            $("#location-select").prop("selectedIndex", -1);
+        });
+
+    }
 
 function drawRoutes(data) {
     // Convert String to Number
