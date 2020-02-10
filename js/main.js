@@ -90,9 +90,6 @@ function drawRoutes(data) {
         .attr("d", function (d) {
             return path(d)
         })
-        .style("fill", "none")
-        .style("stroke", "#69b3a2")
-        .style("stroke-width", 3)
         .attr('class', 'route')
 }
 

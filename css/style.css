@@ -74,6 +74,12 @@ a.bg-dark {
 }
 
 
+.route {
+    fill: none;
+    stroke: #69b3a2;
+    stroke-width: 3;
+    opacity: 0.5;
+}
 
 path {
     fill: black;
