@@ -1,0 +1,41 @@
+[{
+    "lat": 24.90118143,
+    "long": 36.05412432,
+    "link": "icons/coffee-cup.svg",
+    "name": "Brew've Been Served"
+}, {
+    "lat": 24.87743982,
+    "long": 36.05104908,
+    "link": "icons/beer-bottle.svg",
+    "name": "Ouzeri Elian"
+}, {
+    "lat": 24.87970022019883,
+    "long": 36.04928898184553,
+    "link": "icons/real-estate.svg",
+    "name": "GAStech"
+}, {
+    "lat": 24.89526281,
+    "long": 36.07069274,
+    "link": "icons/hotel.svg",
+    "name": "Chostus Hotel"
+}, {
+    "lat": 24.8859472,
+    "long": 36.06369292,
+    "link": "icons/coffee-cup.svg",
+    "name": "Hallowed Grounds"
+}, {
+    "lat": 24.87620205,
+    "long": 36.07712237,
+    "link": "icons/museum.svg",
+    "name": "Ahaggo Museum"
+}, {
+    "lat": 24.90250688,
+    "long": 36.05580399,
+    "link": "icons/restaurant.svg",
+    "name": "Guy's Gyros"
+}, {
+    "lat": 24.90250543,
+    "long": 36.05575684,
+    "link": "icons/restaurant.svg",
+    "name": "Guy's Gyros 2"
+}]
