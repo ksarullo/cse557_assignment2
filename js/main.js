@@ -101,7 +101,30 @@ d3.csv('data/cc_data.csv')
 
                 working_div.selectAll("*").remove();
 
-                if (lastPersonSelection.length > 0) {
+                if (lastLocationSelection.length == 0) {
+                    var values = $('#person-select').val();
+                    lastPersonSelection = values;
+
+                    if(lastPersonSelection.length == 1) {
+
+                        // Draw first selected route
+                        var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
+                        drawRoutes(filteredData);
+
+                        values.forEach(function (val) {
+                            $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
+                            d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
+                            d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
+                        });
+                    } else {
+                        values.forEach(function (val) {
+                            $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
+                            d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
+                            d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
+                        });
+                    }
+
+                } else if (lastPersonSelection.length > 0) {
                     // Get names and locations
                     lastPersonSelection.forEach(function (person) {
                         // Make a dict
@@ -138,7 +161,6 @@ d3.csv('data/cc_data.csv')
                     // Print data in new div
 
                     // Save div name?
-
                 } else {
                     values.forEach(function (val) {
                         $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
@@ -296,7 +318,6 @@ d3.csv('data/cc_data.csv')
         // Select div to work in
         var transaction_div = d3.select("#pills-analysis");
 
-
         d3.select('#person-select').selectAll('option')
             .data(names)
             .enter()
@@ -327,7 +348,16 @@ d3.csv('data/cc_data.csv')
                 svg.selectAll('.route').remove();
                 working_div.selectAll("*").remove();
 
-                if (lastLocationSelection.length > 0) {
+                if (lastPersonSelection.length == 0){
+                    var values = $('#location-select').val();
+                    values.forEach(function (val) {
+                        $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
+                        $('[id="' + val + '-Loyalty"]').remove().insertAfter($('[id="' + val + '-Transactions"]'));
+                        d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "block");
+                        d3.select('[id="' + val + '-Transactions"]').style("display", "block");
+                        d3.select('[id="' + val + '-Loyalty"]').style("display", "block");
+                    });
+                } else if (lastLocationSelection.length > 0) {
                     // Get names and locations
                     lastPersonSelection.forEach(function (person) {
                         // Make a dict
@@ -532,6 +562,22 @@ d3.csv('data/loyalty_data.csv')
             location_div.append("br");
         }
     });
+
+var filter_div = d3.select("#pills-filter");
+
+filter_div.append('button')
+    .text('Reset Selections')
+    .attr('id', 'reset_button')
+    .style('position', 'absolute')
+    .style('bottom', '200px')
+    .style('left', '20px')
+    .on('click', function(){
+        $("#location-select").multiselect("clearSelection");
+        $("#location-select").multiselect( 'refresh' );
+        $("#person-select").multiselect("clearSelection");
+        $("#person-select").multiselect( 'refresh' );
+    });
+
 
 // ************************************* GPS DATA *************************************
 // ************************************************************************************
