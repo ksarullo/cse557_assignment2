@@ -142,7 +142,8 @@ d3.csv('data/cc_data.csv')
                                 .style("border", 2 + 'px solid #ccc')
                                 .style("height", 80 + 'px')
                                 .style("padding", 10 + 'px')
-                                .style("overflow", "auto");
+                                .style("overflow", "auto")
+                                .style("resize", "vertical");
                             if (name_loc_data) {
                                 name_loc_data.forEach(function (val) {
                                     transaction_for_name_loc.append("p")
@@ -155,12 +156,6 @@ d3.csv('data/cc_data.csv')
                             working_div.append('br');
                         });
                     });
-
-                    // Get transaction data for that name and location
-
-                    // Print data in new div
-
-                    // Save div name?
                 } else {
                     values.forEach(function (val) {
                         $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
@@ -173,7 +168,6 @@ d3.csv('data/cc_data.csv')
             }
         });
 
-        // Create location transaction div's
         for (var i = 0; i < locations.length; i++) {
             var location_div = transaction_div.append('div').attr("id", locations[i] + '-Transactions').style("display", "none");
             location_div.append("br")
@@ -183,7 +177,8 @@ d3.csv('data/cc_data.csv')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
-                .style("overflow", "auto");
+                .style("overflow", "auto")
+                .style("resize", "vertical");
             trans_per_loc[i].forEach(function (val) {
                 transaction_box.append("p")
                     .style("line-height", 3 + 'px')
@@ -262,6 +257,7 @@ d3.csv('data/cc_data.csv')
                     });
             });
         }
+        // Create location transaction div's
     });
 
 d3.csv('data/cc_data.csv')
@@ -375,7 +371,8 @@ d3.csv('data/cc_data.csv')
                                 .style("border", 2 + 'px solid #ccc')
                                 .style("height", 80 + 'px')
                                 .style("padding", 10 + 'px')
-                                .style("overflow", "auto");
+                                .style("overflow", "auto")
+                                .style("resize", "vertical");
                             if (name_loc_data) {
                                 name_loc_data.forEach(function (val) {
                                     transaction_for_name_loc.append("p")
@@ -428,7 +425,8 @@ d3.csv('data/cc_data.csv')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
-                .style("overflow", "auto");
+                .style("overflow", "auto")
+                .style("resize", "vertical");
             trans_per_person[i].forEach(function (val) {
                 transaction_box.append("p")
                     .style("line-height", 3 + 'px')
@@ -496,7 +494,8 @@ d3.csv('data/loyalty_data.csv')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
-                .style("overflow", "auto");
+                .style("overflow", "auto")
+                .style("resize", "vertical");
             trans_per_loc[i].forEach(function (val) {
                 transaction_box.append("p")
                     .style("line-height", 3 + 'px')
@@ -553,7 +552,8 @@ d3.csv('data/loyalty_data.csv')
                 .style("border", 2 + 'px solid #ccc')
                 .style("height", 80 + 'px')
                 .style("padding", 10 + 'px')
-                .style("overflow", "auto");
+                .style("overflow", "auto")
+                .style("resize", "vertical");
             trans_per_person[i].forEach(function (val) {
                 transaction_box.append("p")
                     .style("line-height", 3 + 'px')
