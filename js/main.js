@@ -28,6 +28,22 @@ d3.csv('data/cc_data.csv')
             })
             .entries(rows);
 
+        // Sort by name by location
+        var sorted_by_name_loc = d3.nest()
+            .key(function (d) {
+                return d.name;
+            })
+            .key(function (d) {
+                return d.location;
+            })
+            .entries(rows);
+
+        // Sort alphabetically
+        ordered_by_name_loc = {};
+        d3.values(sorted_by_name_loc).map(function (d) {
+            return ordered_by_name_loc[d.key] = d.values;
+        });
+
         // Sort alphabetically
         ordered = {};
         d3.values(sorted_by_loc).map(function (d) {
@@ -70,20 +86,60 @@ d3.csv('data/cc_data.csv')
             onChange: function(option, checked) {
                 var values = $('#location-select').val();
 
+                var working_div = d3.select('#test');
+
+                lastLocationSelection.forEach(function (val) {
+                    d3.select('[id="' + val + '-Transactions"]').style("display", "none");
+                    d3.select('[id="' + val + '-Loyalty"]').style("display", "none");
+                    d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "none");
+                });
+                lastLocationSelection = values;
+                lastPersonSelection.forEach(function (val) {
+                    d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
+                    d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
+                });
+
+                working_div.selectAll("*").remove();
+
                 if (lastPersonSelection.length > 0) {
-                    console.log(lastPersonSelection);
-                    console.log(values);
+                    // Get names and locations
+                    lastPersonSelection.forEach(function (person) {
+                        // Make a dict
+                        ordered_again_by_name_loc = {};
+                        d3.values(ordered_by_name_loc[person]).map(function (d) {
+                            return ordered_again_by_name_loc[d.key] = d.values;
+                        });
+
+                        lastLocationSelection.forEach(function (person_loc) {
+                            var name_loc_data = ordered_again_by_name_loc[person_loc];
+
+                            working_div.append('h5').text(person + ' at ' + person_loc);
+                            var transaction_for_name_loc = working_div.append("div")
+                                .style("width", 450 + 'px')
+                                .style("border", 2 + 'px solid #ccc')
+                                .style("height", 80 + 'px')
+                                .style("padding", 10 + 'px')
+                                .style("overflow", "auto");
+                            if (name_loc_data) {
+                                name_loc_data.forEach(function (val) {
+                                    transaction_for_name_loc.append("p")
+                                        .style("line-height", 3 + 'px')
+                                        .text(val.timestamp + ', ' + val.cost)
+                                });
+                            } else {
+                                transaction_for_name_loc.append('p').text('No Transaction Information')
+                            }
+                            working_div.append('br');
+                        });
+                    });
+
+                    // Get transaction data for that name and location
+
+                    // Print data in new div
+
+                    // Save div name?
+
                 } else {
-                    lastLocationSelection.forEach(function (val) {
-                        d3.select('[id="' + val + '-Transactions"]').style("display", "none");
-                        d3.select('[id="' + val + '-Loyalty"]').style("display", "none");
-                        d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "none");
-                    });
-                    lastLocationSelection = values;
-                    lastPersonSelection.forEach(function (val) {
-                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
-                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
-                    });
                     values.forEach(function (val) {
                         $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
                         $('[id="' + val + '-Loyalty"]').remove().insertAfter($('[id="' + val + '-Transactions"]'));
@@ -211,6 +267,22 @@ d3.csv('data/cc_data.csv')
             return ordered[d.key] = d.values;
         });
 
+        // Sort by name by location
+        var sorted_by_name_loc = d3.nest()
+            .key(function (d) {
+                return d.name;
+            })
+            .key(function (d) {
+                return d.location;
+            })
+            .entries(rows);
+
+        // Sort alphabetically
+        ordered_by_name_loc = {};
+        d3.values(sorted_by_name_loc).map(function (d) {
+            return ordered_by_name_loc[d.key] = d.values;
+        });
+
         // Get location keys and values
         var names = d3.values(sorted_by_name).map(function (d) {
             return d.key;
@@ -223,6 +295,7 @@ d3.csv('data/cc_data.csv')
 
         // Select div to work in
         var transaction_div = d3.select("#pills-analysis");
+
 
         d3.select('#person-select').selectAll('option')
             .data(names)
@@ -237,28 +310,66 @@ d3.csv('data/cc_data.csv')
             maxHeight: 200,
             onChange: function(option, checked) {
                 var values = $('#person-select').val();
+                var working_div = d3.select('#test');
+
+                lastPersonSelection.forEach(function (val) {
+                    d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
+                    d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
+                });
+                lastPersonSelection = values;
+                lastLocationSelection.forEach(function (val) {
+                    d3.select('[id="' + val + '-Transactions"]').style("display", "none");
+                    d3.select('[id="' + val + '-Loyalty"]').style("display", "none");
+                    d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "none");
+                });
+
+                // Remove Routes
+                svg.selectAll('.route').remove();
+                working_div.selectAll("*").remove();
 
                 if (lastLocationSelection.length > 0) {
-                    console.log(lastLocationSelection)
-                    console.log(values);
-                } else {
-                    lastPersonSelection.forEach(function (val) {
-                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
-                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
-                    });
-                    lastPersonSelection = values;
+                    // Get names and locations
+                    lastPersonSelection.forEach(function (person) {
+                        // Make a dict
+                        ordered_again_by_name_loc = {};
+                        d3.values(ordered_by_name_loc[person]).map(function (d) {
+                            return ordered_again_by_name_loc[d.key] = d.values;
+                        });
 
-                    // Remove Routes
-                    svg.selectAll('.route').remove();
+                        lastLocationSelection.forEach(function (person_loc) {
+                            var name_loc_data = ordered_again_by_name_loc[person_loc];
+
+                            working_div.append('h5').text(person + ' at ' + person_loc);
+                            var transaction_for_name_loc = working_div.append("div")
+                                .style("width", 450 + 'px')
+                                .style("border", 2 + 'px solid #ccc')
+                                .style("height", 80 + 'px')
+                                .style("padding", 10 + 'px')
+                                .style("overflow", "auto");
+                            if (name_loc_data) {
+                                name_loc_data.forEach(function (val) {
+                                    transaction_for_name_loc.append("p")
+                                        .style("line-height", 3 + 'px')
+                                        .text(val.timestamp + ', ' + val.cost)
+                                });
+                            } else {
+                                transaction_for_name_loc.append('p').text('No Transaction Information')
+                            }
+                            working_div.append('br');
+                        });
+                    });
+                } else if(lastPersonSelection.length == 1) {
 
                     // Draw first selected route
                     var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
                     drawRoutes(filteredData);
 
-                    lastLocationSelection.forEach(function (val) {
-                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
-                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
+                    values.forEach(function (val) {
+                        $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
+                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
+                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
                     });
+                } else {
                     values.forEach(function (val) {
                         $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
                         d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
