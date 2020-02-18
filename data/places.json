@@ -86,5 +86,11 @@
         "long": 36.05693590622032,
         "link": "icons/car-settings.svg",
         "name": "Frydos Autosupply n' More"
+    },
+    {
+        "lat": 24.846237029376255,
+        "long": 36.053531453529146,
+        "link": "icons/landmark.svg",
+        "name": "Kronos Capitol"
     }
 ]

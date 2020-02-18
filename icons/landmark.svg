@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g>
+	<path d="M271,46.753V0h-30v46.753C175.32,53.305,121.978,102.395,109.016,166h293.968C390.022,102.395,336.68,53.305,271,46.753z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+	<path d="M0,314v30h21v108h90V344h30v108h40.338c3.543-38.084,35.669-68,74.662-68s71.119,29.916,74.662,68H371V344h30v108h90V344   h21v-30H0z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+	<polygon points="61,284 151,284 151,226 181,226 181,284 241,284 241,226 271,226 271,284 331,284 331,226 361,226 361,284    451,284 451,226 468,226 468,196 44,196 44,226 61,226  " data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+	<rect y="482" width="181" height="30" data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+	<rect x="331" y="482" width="181" height="30" data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+	<path d="M256,414c-24.813,0-45,20.187-45,45v53h90v-53C301,434.187,280.813,414,256,414z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#007BFF"/>
+</g></g> </svg>
