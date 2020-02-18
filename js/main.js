@@ -610,7 +610,7 @@ d3.select("svg").on("mousedown.log", function () {
 d3.queue()
     .defer(d3.json, 'data/Abila.json')
     .defer(d3.json, 'data/places.json')
-    .defer(d3.csv, 'data/gps.csv')
+    .defer(d3.csv, 'data/gps_reduced.csv')
     .defer(d3.csv, 'data/car-assignments.csv')
     .await(ready);
 
