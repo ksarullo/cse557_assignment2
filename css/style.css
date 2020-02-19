@@ -123,6 +123,12 @@ path {
 }
 
 .stops{
-    r: 5px;
-    fill: red;
+    r: 7px;
+    fill: #0d0d29;
+}
+
+.stops-text{
+    fill:white;
+    font-size: x-small;
+    cursor: default;
 }

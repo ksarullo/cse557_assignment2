@@ -811,11 +811,24 @@ function drawRoutes(data, stops) {
         .attr('cy', function (d) {
             return projection([d.long, d.lat])[1];
         })
-        .attr('title', function (d, i) {
-            console.log(i+1);
+        .attr('class', 'stops')
+
+    svg.selectAll(".stops-text").remove()
+    employee_stops_text = svg.append("g")
+        .selectAll("circle")
+        .data(stops)
+        .enter()
+        .append('text')
+        .attr('dx', function (d) {
+            return projection([d.long, d.lat])[0]-4;
+        })
+        .attr('dy', function (d) {
+            return projection([d.long, d.lat])[1]+4;
+        })
+        .attr('class', 'stops-text')
+        .text(function (d, i) {
             return i+1;
         })
-        .attr('class', 'stops')
 }
 
 svg.call(zoom);
@@ -825,6 +838,7 @@ function zoomed() {
     stores.attr("transform", d3.event.transform);
     employee_paths.attr("transform", d3.event.transform);
     employee_stops.attr("transform", d3.event.transform);
+    employee_stops_text.attr("transform", d3.event.transform);
 }
 
 
