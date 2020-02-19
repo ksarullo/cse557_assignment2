@@ -219,6 +219,7 @@ filter_div.append('button')
         $("#person-select").multiselect("clearSelection");
         $("#person-select").multiselect('refresh');
         svg.selectAll('.route').remove();
+        svg.selectAll(".stops").remove();
         d3.select("#test").selectAll("*").remove();
         dragSlider.noUiSlider.reset()
     });
@@ -227,6 +228,7 @@ function update_analysis() {
 
     // Remove old
     svg.selectAll('.route').remove();
+    svg.selectAll(".stops").remove();
     var working_div = d3.select('#test');
     working_div.selectAll("*").remove();
 
@@ -702,7 +704,7 @@ function drawRoutes(data, stops) {
         })
         .attr('class', 'route')
 
-    svg.selectAll(".stops").remove()
+    svg.selectAll(".stops").remove();
     employee_stops = svg.append("g")
         .selectAll("circle")
         .data(stops)
