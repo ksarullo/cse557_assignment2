@@ -20,7 +20,7 @@
     padding-top: 20px;
 }
 
-#map-card{
+#map-card {
     min-height: 95vh;
 }
 
@@ -33,13 +33,13 @@
     width: 100px;
 }
 
-/* ----------| Menu item*/    
+/* ----------| Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
 }
 
-/* ----------| Submenu item*/    
+/* ----------| Submenu item*/
 #sidebar-container .list-group li.list-group-item {
     background-color: #132644;
 }
@@ -53,7 +53,7 @@
     font-size: 0.9rem;
 }
 
-/* ----------| Separators */    
+/* ----------| Separators */
 .sidebar-separator-title {
     background-color: #132644;
     height: 35px;
@@ -85,29 +85,35 @@ path {
     fill: black;
     stroke: black;
     stroke-width: .5px;
-  }
+}
 
 
 
-  .svg-container {
+.svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
     vertical-align: center;
     overflow: hidden;
-  }
-  .svg-content-responsive {
+}
+
+.svg-content-responsive {
     display: inline-block;
     position: absolute;
     top: 10px;
     left: 0;
-  }
+}
 
 .multiselect-container {
     width: 100% !important;
 }
 
-.multiselect {
+.multiselect {}
 
+.noUi-tooltip {
+    display: none;
 }
-  
+
+.noUi-active .noUi-tooltip {
+    display: block;
+}

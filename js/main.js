@@ -8,10 +8,22 @@
 var lastLocationSelection = [];
 var lastPersonSelection = [];
 var allLocations = [];
+var selectedPerson;
+window['moment-range'].extendMoment(moment);
+
+// ***************************
+// Slider Values
+// ***************************
+var dragSlider = document.getElementById('slider');
+
+var nodes = [
+    document.getElementById('lower-value'), // 0
+    document.getElementById('upper-value') // 1
+];
 
 d3.csv('data/cc_data.csv')
     .row((d, i) => {
-        var format_price =  d3.format(",.2f");
+        var format_price = d3.format(",.2f");
         return {
             timestamp: d.timestamp,
             hour: d.timestamp.split(" ")[1].split(":")[0],
@@ -21,6 +33,7 @@ d3.csv('data/cc_data.csv')
         };
     })
     .get((error, rows) => {
+
         // Sort by location
         var sorted_by_loc = d3.nest()
             .key(function (d) {
@@ -68,22 +81,26 @@ d3.csv('data/cc_data.csv')
         var filter_div = d3.select("#pills-filter");
         filter_div.append("p").text("Choose one or more locations:");
         var select = filter_div.append('select')
-            .attr('id','location-select')
+            .attr('id', 'location-select')
             .attr('class', 'form-control')
             .property('multiple', 'multiple')
             .selectAll('option')
             .data(locations)
             .enter()
             .append('option')
-            .text(function (d) { return d; })
-            .attr("value", function (d) { return d; });
+            .text(function (d) {
+                return d;
+            })
+            .attr("value", function (d) {
+                return d;
+            });
 
         $("#location-select").prop("selectedIndex", -1);
         $('#location-select').multiselect({
             buttonWidth: '480px',
             enableFiltering: false,
             maxHeight: 200,
-            onChange: function(option, checked) {
+            onChange: function (option, checked) {
                 var values = $('#location-select').val();
 
                 var working_div = d3.select('#test');
@@ -105,10 +122,11 @@ d3.csv('data/cc_data.csv')
                     var values = $('#person-select').val();
                     lastPersonSelection = values;
 
-                    if(lastPersonSelection.length == 1) {
+                    if (lastPersonSelection.length == 1) {
 
                         // Draw first selected route
                         var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
+
                         drawRoutes(filteredData);
 
                         values.forEach(function (val) {
@@ -215,7 +233,7 @@ d3.csv('data/cc_data.csv')
             }
             var sum = 0;
             hours[i].forEach(function (item2) {
-                y[item2.key] = (Math.round(item2.values.length  / 2)) + 1;
+                y[item2.key] = (Math.round(item2.values.length / 2)) + 1;
                 sum = sum + y[item2.key]
             });
 
@@ -233,8 +251,8 @@ d3.csv('data/cc_data.csv')
                     .attr("height", 100)
                     .append("rect")
                     .attr("y", function (d) {
-                        if (y[j] > 1){
-                            return 95 - (y[j] / sum)*100;
+                        if (y[j] > 1) {
+                            return 95 - (y[j] / sum) * 100;
                         } else {
                             return 94
                         }
@@ -242,8 +260,8 @@ d3.csv('data/cc_data.csv')
                     .attr("width", 15)
                     .attr("fill", "black")
                     .attr("height", function (d) {
-                        if (y[j] > 1){
-                            return (y[j] / sum)*100;
+                        if (y[j] > 1) {
+                            return (y[j] / sum) * 100;
                         } else {
                             return 1
                         }
@@ -253,7 +271,8 @@ d3.csv('data/cc_data.csv')
                 time_v_pop_div.append("text")
                     .style("font-size", 10 + 'px')
                     .style("writing-mode", "tb-rl")
-                    .text(function(d) { return val + ":00";
+                    .text(function (d) {
+                        return val + ":00";
                     });
             });
         }
@@ -262,7 +281,7 @@ d3.csv('data/cc_data.csv')
 
 d3.csv('data/cc_data.csv')
     .row((d, i) => {
-        var format_price =  d3.format(",.2f");
+        var format_price = d3.format(",.2f");
         return {
             timestamp: d.timestamp,
             hour: d.timestamp.split(" ")[1].split(":")[0],
@@ -318,14 +337,18 @@ d3.csv('data/cc_data.csv')
             .data(names)
             .enter()
             .append('option')
-            .text(function (d) { return d; })
-            .attr("value", function (d) { return d; });
+            .text(function (d) {
+                return d;
+            })
+            .attr("value", function (d) {
+                return d;
+            });
 
         $('#person-select').multiselect({
             buttonWidth: '480px',
             enableFiltering: false,
             maxHeight: 200,
-            onChange: function(option, checked) {
+            onChange: function (option, checked) {
                 var values = $('#person-select').val();
                 var working_div = d3.select('#test');
 
@@ -344,7 +367,7 @@ d3.csv('data/cc_data.csv')
                 svg.selectAll('.route').remove();
                 working_div.selectAll("*").remove();
 
-                if (lastPersonSelection.length == 0){
+                if (lastPersonSelection.length == 0) {
                     var values = $('#location-select').val();
                     values.forEach(function (val) {
                         $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
@@ -385,9 +408,8 @@ d3.csv('data/cc_data.csv')
                             working_div.append('br');
                         });
                     });
-                } else if(lastPersonSelection.length == 1) {
-
-                    // Draw first selected route
+                } else if (lastPersonSelection.length == 1) {
+                    selectedPerson = car_id_to_name[lastPersonSelection[0]];
                     var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
                     drawRoutes(filteredData);
 
@@ -438,7 +460,7 @@ d3.csv('data/cc_data.csv')
 
 d3.csv('data/loyalty_data.csv')
     .row((d, i) => {
-        var format_price =  d3.format(",.2f");
+        var format_price = d3.format(",.2f");
         return {
             date: d.timestamp,
             location: d.location,
@@ -507,7 +529,7 @@ d3.csv('data/loyalty_data.csv')
 
 d3.csv('data/loyalty_data.csv')
     .row((d, i) => {
-        var format_price =  d3.format(",.2f");
+        var format_price = d3.format(",.2f");
         return {
             date: d.timestamp,
             location: d.location,
@@ -571,11 +593,11 @@ filter_div.append('button')
     .style('position', 'absolute')
     .style('bottom', '200px')
     .style('left', '20px')
-    .on('click', function(){
+    .on('click', function () {
         $("#location-select").multiselect("clearSelection");
-        $("#location-select").multiselect( 'refresh' );
+        $("#location-select").multiselect('refresh');
         $("#person-select").multiselect("clearSelection");
-        $("#person-select").multiselect( 'refresh' );
+        $("#person-select").multiselect('refresh');
     });
 
 
@@ -630,6 +652,58 @@ function ready(error, d, places, gps, carAssign) {
         .enter().append('path')
         .attr('d', path)
     gpsData = gps;
+    var minData = d3.min(gps.map(d => d.Timestamp));
+    var maxData = d3.max(gps.map(d => d.Timestamp));
+    var theMinDate = new Date(minData);
+    var theMaxDate = new Date(maxData);
+
+    noUiSlider.create(slider, {
+        start: [theMinDate.getDate(), theMaxDate.getDate()],
+        tooltips: true,
+        connect: true,
+        range: {
+            'min': theMinDate.getDate(),
+            'max': theMaxDate.getDate()
+        },
+        format: {
+            from: function (value) {
+                return parseInt(value);
+            },
+            to: function (value) {
+                return parseInt(value);
+            }
+        }
+    })
+
+    nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${theMinDate.getDate()} / ${theMinDate.getFullYear()}`;
+    nodes[1].innerHTML = `${theMaxDate.getMonth() + 1} / ${theMaxDate.getDate()} / ${theMaxDate.getFullYear()}`;
+
+    startDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMinDate.getDate()}/${theMinDate.getFullYear()}`);
+    endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMaxDate.getDate()}/${theMinDate.getFullYear()}`);
+
+    function prependZero(number) {
+        if (number < 9)
+            return "0" + number;
+        else
+            return number;
+    }
+
+    dragSlider.noUiSlider.on('change', function (values, handle) {
+        nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[0])} / ${theMinDate.getFullYear()}`;
+        nodes[1].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[1])} / ${theMinDate.getFullYear()}`;
+
+        var startDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${prependZero(parseInt(values[0]))}/${theMinDate.getFullYear()}`);
+        var endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${prependZero(parseInt(values[1]))}/${theMinDate.getFullYear()}`);
+
+        var filteredRange = moment.range(startDate, endDate);
+        // console.log(selectedPerson);
+        // filteredRange = gps.filter(d => range.contains(moment(d.Timestamp)));
+
+        var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+        console.log(filteredDataTime);
+        drawRoutes(filteredDataTime);
+    });
+
     // Create places as Image Icon
     stores = svg.selectAll("image")
         .data(places)
@@ -660,6 +734,7 @@ function ready(error, d, places, gps, carAssign) {
 }
 
 function drawRoutes(data) {
+    console.log('DrawRoutes triggered!')
     // Convert String to Number
     data = data.map(d => {
         return {
@@ -680,6 +755,7 @@ function drawRoutes(data) {
             ]
         });
     }
+    svg.selectAll(".route").remove()
     // Create Routes
     employee_paths = svg.selectAll("path")
         .data(links)
@@ -692,11 +768,13 @@ function drawRoutes(data) {
 }
 
 svg.call(zoom);
+
 function zoomed() {
     view.attr("transform", d3.event.transform);
     stores.attr("transform", d3.event.transform);
     employee_paths.attr("transform", d3.event.transform);
 }
+
 function resetted() {
     svg.transition()
         .duration(750)
