@@ -621,6 +621,7 @@ d3.queue()
 // carAssign - Car Assginment Data 
 // *****************************
 function ready(error, d, places, gps, carAssign) {
+ 
     projection.fitExtent([
         [0, 0],
         [width, height]
@@ -661,6 +662,7 @@ function ready(error, d, places, gps, carAssign) {
 
 function drawRoutes(data) {
     // Convert String to Number
+    resetted();
     data = data.map(d => {
         return {
             timestamp: d.Timestamp,
@@ -669,6 +671,7 @@ function drawRoutes(data) {
             lon: +d.long
         }
     });
+  
     var links = [];
     // Generate Links
     for (var i = 0, len = data.length - 1; i < len; i++) {
@@ -680,8 +683,10 @@ function drawRoutes(data) {
             ]
         });
     }
+    console.log(links);
     // Create Routes
-    employee_paths = svg.selectAll("path")
+    employee_paths = svg.append("g")
+        .selectAll("path")
         .data(links)
         .enter()
         .append("path")
@@ -689,6 +694,8 @@ function drawRoutes(data) {
             return path(d)
         })
         .attr('class', 'route')
+        
+
 }
 
 svg.call(zoom);
