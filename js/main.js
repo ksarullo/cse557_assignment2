@@ -11,6 +11,9 @@ var allTransPerLoc = {};
 var allLoyaltyPerPerson = {};
 var allLoyaltyPerLoc = {};
 var allTransPerLocHours = {};
+var allEmployeePaths = [];
+var allEmployeeStops = [];
+var allEmployeeStopsText = [];
 var colors = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33", "#a65628", "#f781bf", "#999999", "#66c2a5",
     "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3", "#8dd3c7", "#ffffb3", "#bebada", "#fb8072",
     "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f", "#1f77b4", "#ff7f0e", "#2ca02c",
@@ -235,12 +238,14 @@ filter_div.append('button')
         filteredRange = moment.range(startDate, endDate);
     });
 
-function update_analysis() {
+function update_analysis(dontDraw=false) {
 
     // Remove old
-    svg.selectAll('.route').remove();
-    svg.selectAll(".stops").remove();
-    svg.selectAll(".stops-text").remove();
+    if (!dontDraw) {
+        svg.selectAll('.route').remove();
+        svg.selectAll(".stops").remove();
+        svg.selectAll(".stops-text").remove();
+    }
     var working_div = d3.select('#test');
     working_div.selectAll("*").remove();
 
@@ -359,15 +364,17 @@ function update_analysis() {
             selectedPerson = car_id_to_name[person_val];
             color = colors[idx];
 
-            if (filteredRange) {
-                var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-                var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+            if (!dontDraw) {
+                if (filteredRange) {
+                    var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+                    var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
 
-                drawRoutes(filteredDataTime, filteredGpsStops, color);
-            } else {
-                var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
-                var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
-                drawRoutes(filteredData, filteredGpsStops, color);
+                    drawRoutes(filteredDataTime, filteredGpsStops, color);
+                } else {
+                    var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
+                    var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
+                    drawRoutes(filteredData, filteredGpsStops, color);
+                }
             }
 
             // Create transaction per person data
@@ -430,15 +437,17 @@ function update_analysis() {
             selectedPerson = car_id_to_name[person_val];
             color = colors[idx];
 
-            if (filteredRange) {
-                var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-                var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+            if (!dontDraw) {
+                if (filteredRange) {
+                    var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+                    var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
 
-                drawRoutes(filteredDataTime, filteredGpsStops, color);
-            } else {
-                var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
-                var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
-                drawRoutes(filteredData, filteredGpsStops, color);
+                    drawRoutes(filteredDataTime, filteredGpsStops, color);
+                } else {
+                    var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
+                    var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
+                    drawRoutes(filteredData, filteredGpsStops, color);
+                }
             }
 
 
@@ -681,7 +690,7 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
         })
         .on('mousedown.log', function (val) {
             $('#location-select').multiselect('select', val.name);
-            update_analysis()
+            update_analysis(dontDraw=true);
         });
 
 
@@ -745,6 +754,7 @@ function drawRoutes(data, stops, color) {
         .attr('class', 'route')
         .style("stroke", color)
         .style("stroke-width", 2);
+    allEmployeePaths.push(employee_paths);
 
     // svg.selectAll(".stops").remove();
     employee_stops = svg.append("g")
@@ -758,7 +768,8 @@ function drawRoutes(data, stops, color) {
         .attr('cy', function (d) {
             return projection([d.long, d.lat])[1];
         })
-        .attr('class', 'stops')
+        .attr('class', 'stops');
+    allEmployeeStops.push(employee_stops);
 
     // svg.selectAll(".stops-text").remove()
     employee_stops_text = svg.append("g")
@@ -775,7 +786,8 @@ function drawRoutes(data, stops, color) {
         .attr('class', 'stops-text')
         .text(function (d, i) {
             return i + 1;
-        })
+        });
+    allEmployeeStopsText.push(employee_stops_text);
 }
 
 svg.call(zoom);
@@ -784,13 +796,16 @@ function zoomed() {
     view.attr("transform", d3.event.transform);
     stores.attr("transform", d3.event.transform);
     kronos_label.attr("transform", d3.event.transform);
-    if (employee_paths) {
-        employee_paths.attr("transform", d3.event.transform);
-        employee_stops.attr("transform", d3.event.transform);
-        employee_stops_text.attr("transform", d3.event.transform);
-    }
+    allEmployeePaths.forEach(function (val){
+        val.attr("transform", d3.event.transform);
+    });
+    allEmployeeStops.forEach(function (val){
+        val.attr("transform", d3.event.transform);
+    });
+    allEmployeeStopsText.forEach(function (val){
+        val.attr("transform", d3.event.transform);
+    });
 }
-
 
 function resetted() {
     svg.transition()
