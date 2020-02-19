@@ -125,6 +125,7 @@ path {
 .stops{
     r: 7px;
     fill: #0d0d29;
+    opacity: 0.5;
 }
 
 .stops-text{
