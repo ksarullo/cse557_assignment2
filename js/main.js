@@ -679,6 +679,12 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
         .attr("title", d => {
             return d.name
         })
+        .on('mousedown.log', function (val) {
+            $('#location-select').multiselect('select', val.name);
+            update_analysis()
+        });
+
+
     // Boostrap Tooltip: Enable tooltips everywhere
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
@@ -778,9 +784,11 @@ function zoomed() {
     view.attr("transform", d3.event.transform);
     stores.attr("transform", d3.event.transform);
     kronos_label.attr("transform", d3.event.transform);
-    employee_paths.attr("transform", d3.event.transform);
-    employee_stops.attr("transform", d3.event.transform);
-    employee_stops_text.attr("transform", d3.event.transform);
+    if (employee_paths) {
+        employee_paths.attr("transform", d3.event.transform);
+        employee_stops.attr("transform", d3.event.transform);
+        employee_stops_text.attr("transform", d3.event.transform);
+    }
 }
 
 
