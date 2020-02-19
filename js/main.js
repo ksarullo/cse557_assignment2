@@ -661,11 +661,14 @@ function ready(error, d, places, gps, carAssign) {
         .enter().append('path')
         .attr('d', path)
     gpsData = gps;
+    // Get Min Data 
     var minData = d3.min(gps.map(d => d.Timestamp));
+    // Get Max Data
     var maxData = d3.max(gps.map(d => d.Timestamp));
     var theMinDate = new Date(minData);
     var theMaxDate = new Date(maxData);
 
+    // Create Slide
     noUiSlider.create(slider, {
         start: [theMinDate.getDate(), theMaxDate.getDate()],
         tooltips: true,
@@ -684,12 +687,15 @@ function ready(error, d, places, gps, carAssign) {
         }
     })
 
+    // Assign text for lower and upper bound 
     nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${theMinDate.getDate()} / ${theMinDate.getFullYear()}`;
     nodes[1].innerHTML = `${theMaxDate.getMonth() + 1} / ${theMaxDate.getDate()} / ${theMaxDate.getFullYear()}`;
-
+    // Start Date. For example (01/06/2014)
     startDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMinDate.getDate()}/${theMinDate.getFullYear()}`);
+    // End Date. For example (01/19/2014)
     endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMaxDate.getDate()}/${theMinDate.getFullYear()}`);
 
+    // Add 0 if the number is one digit
     function prependZero(number) {
         if (number < 9)
             return "0" + number;
@@ -697,19 +703,19 @@ function ready(error, d, places, gps, carAssign) {
             return number;
     }
 
+    // Listen Slider Change
     dragSlider.noUiSlider.on('change', function (values, handle) {
         nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[0])} / ${theMinDate.getFullYear()}`;
         nodes[1].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[1])} / ${theMinDate.getFullYear()}`;
 
+        // Start Date. For example (01/06/2014)
         var startDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${prependZero(parseInt(values[0]))}/${theMinDate.getFullYear()}`);
+        // End Date. For example (01/19/2014)
         var endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${prependZero(parseInt(values[1]))}/${theMinDate.getFullYear()}`);
-
+        // Get Range between start and end date
         var filteredRange = moment.range(startDate, endDate);
-        // console.log(selectedPerson);
-        // filteredRange = gps.filter(d => range.contains(moment(d.Timestamp)));
-
+        // Get selectedPerson id from checkbox and whether the date is within a range 
         var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-        console.log(filteredDataTime);
         drawRoutes(filteredDataTime);
     });
 
@@ -777,8 +783,6 @@ function drawRoutes(data) {
             return path(d)
         })
         .attr('class', 'route')
-
-
 }
 
 svg.call(zoom);
