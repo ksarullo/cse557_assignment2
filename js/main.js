@@ -5,10 +5,18 @@
 // ************************************************************************************
 // ************************************************************************************
 
-var lastLocationSelection = [];
-var lastPersonSelection = [];
-var allLocations = [];
+var allNames = [];
+var allTransPerPerson = {};
+var allTransPerLoc = {};
+var allLoyaltyPerPerson = {};
+var allLoyaltyPerLoc = {};
+var allTransPerLocHours = {};
+const space_date_parser = d3.timeParse("%m / %d / %Y");
+const datetime_parser = d3.timeParse("%m/%d/%Y %H:%M");
+
+
 var selectedPerson;
+var filteredRange;
 window['moment-range'].extendMoment(moment);
 
 // ***************************
@@ -21,6 +29,9 @@ var nodes = [
     document.getElementById('upper-value') // 1
 ];
 
+// ***************************
+// Credit Card Data
+// ***************************
 d3.csv('data/cc_data.csv')
     .row((d, i) => {
         var format_price = d3.format(",.2f");
@@ -34,51 +45,53 @@ d3.csv('data/cc_data.csv')
     })
     .get((error, rows) => {
 
-        // Sort by location
+        // Get transaction data per location
         var sorted_by_loc = d3.nest()
             .key(function (d) {
                 return d.location;
             })
             .entries(rows);
-
-        // Sort by name by location
-        var sorted_by_name_loc = d3.nest()
-            .key(function (d) {
-                return d.name;
-            })
-            .key(function (d) {
-                return d.location;
-            })
-            .entries(rows);
-
-        // Sort alphabetically
-        ordered_by_name_loc = {};
-        d3.values(sorted_by_name_loc).map(function (d) {
-            return ordered_by_name_loc[d.key] = d.values;
-        });
-
-        // Sort alphabetically
         ordered = {};
         d3.values(sorted_by_loc).map(function (d) {
             return ordered[d.key] = d.values;
         });
-
-        // Get location keys and values
         var unsorted_locations = d3.values(sorted_by_loc).map(function (d) {
             return d.key;
         });
-        locations = unsorted_locations.sort();
-        allLocations = locations;
-
-        var trans_per_loc = d3.values(locations).map(function (d) {
-            return ordered[d];
+        var locations = unsorted_locations.sort();
+        d3.values(locations).map(function (d) {
+            return allTransPerLoc[d] = ordered[d];
         });
 
-        // Select div to work in
-        var transaction_div = d3.select("#pills-analysis");
+        // Get transaction data per person
+        var sorted_by_name = d3.nest()
+            .key(function (d) {
+                return d.name;
+            })
+            .entries(rows);
+        d3.values(sorted_by_name).map(function (d) {
+            return allTransPerPerson[d.key] = d.values;
+        });
 
-        // Create dropdown
-        var filter_div = d3.select("#employee_dropdown");
+        // Get hours at locations
+        var sorted_by_hour = d3.nest()
+            .key(function (d) {
+                return d.location;
+            })
+            .key(function (d) {
+                return d.hour;
+            })
+            .entries(rows);
+        ordered = {};
+        d3.values(sorted_by_hour).map(function (d) {
+            return ordered[d.key] = d.values;
+        });
+        var hours = d3.values(locations).map(function (d) {
+            return allTransPerLocHours[d] = ordered[d];
+        });
+
+        // Create location select
+        var filter_div = d3.select("#location_dropdown");
         filter_div.append("p").text("Choose one or more locations:");
         var select = filter_div.append('select')
             .attr('id', 'location-select')
@@ -94,148 +107,135 @@ d3.csv('data/cc_data.csv')
             .attr("value", function (d) {
                 return d;
             });
-
         $("#location-select").prop("selectedIndex", -1);
         $('#location-select').multiselect({
             buttonWidth: '480px',
             enableFiltering: false,
             maxHeight: 200,
             onChange: function (option, checked) {
-                var values = $('#location-select').val();
-
-                var working_div = d3.select('#test');
-
-                lastLocationSelection.forEach(function (val) {
-                    d3.select('[id="' + val + '-Transactions"]').style("display", "none");
-                    d3.select('[id="' + val + '-Loyalty"]').style("display", "none");
-                    d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "none");
-                });
-                lastLocationSelection = values;
-                lastPersonSelection.forEach(function (val) {
-                    d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
-                    d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
-                });
-
-                working_div.selectAll("*").remove();
-                if (lastLocationSelection.length == 0) {
-                    var values = $('#person-select').val();
-                    lastPersonSelection = values;
-
-                    if (lastPersonSelection.length == 1) {
-
-                        // Draw first selected route
-                        var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
-                        var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[values[0]]);
-                        console.log("stops1:");
-                        console.log(filteredGpsStops);
-
-                        drawRoutes(filteredData, filteredGpsStops);
-
-
-                        /*
-                        // Hoping this draws all selected people's routes
-                        for (i=0; i < values.length; i++){
-                            var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[i]]);
-                            drawRoutes(filteredData);
-                        }
-                        */
-
-
-                        values.forEach(function (val) {
-                            $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
-                            d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
-                            d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
-                        });
-                    } else {
-                        values.forEach(function (val) {
-                            $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
-                            d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
-                            d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
-                        });
-                    }
-
-                } else if (lastPersonSelection.length > 0) {
-                    // Get names and locations
-                    lastPersonSelection.forEach(function (person) {
-                        // Make a dict
-                        ordered_again_by_name_loc = {};
-                        d3.values(ordered_by_name_loc[person]).map(function (d) {
-                            return ordered_again_by_name_loc[d.key] = d.values;
-                        });
-
-                        lastLocationSelection.forEach(function (person_loc) {
-                            var name_loc_data = ordered_again_by_name_loc[person_loc];
-
-                            working_div.append('h5').text(person + ' at ' + person_loc);
-                            var transaction_for_name_loc = working_div.append("div")
-                                .style("width", 450 + 'px')
-                                .style("border", 2 + 'px solid #ccc')
-                                .style("height", 80 + 'px')
-                                .style("padding", 10 + 'px')
-                                .style("overflow", "auto")
-                                .style("resize", "vertical");
-                            if (name_loc_data) {
-                                name_loc_data.forEach(function (val) {
-                                    transaction_for_name_loc.append("p")
-                                        .style("line-height", 3 + 'px')
-                                        .text(val.timestamp + ', ' + val.cost)
-                                });
-                            } else {
-                                transaction_for_name_loc.append('p').text('No Transaction Information')
-                            }
-                            working_div.append('br');
-                        });
-                    });
-                } else {
-                    values.forEach(function (val) {
-                        $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
-                        $('[id="' + val + '-Loyalty"]').remove().insertAfter($('[id="' + val + '-Transactions"]'));
-                        d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "block");
-                        d3.select('[id="' + val + '-Transactions"]').style("display", "block");
-                        d3.select('[id="' + val + '-Loyalty"]').style("display", "block");
-                    });
-                }
-
+                update_analysis();
             }
         });
 
-        for (var i = 0; i < locations.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", locations[i] + '-Transactions').style("display", "none");
-            location_div.append("br")
-            location_div.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
-            var transaction_box = location_div.append("div")
-                .style("width", 450 + 'px')
-                .style("border", 2 + 'px solid #ccc')
-                .style("height", 80 + 'px')
-                .style("padding", 10 + 'px')
-                .style("overflow", "auto")
-                .style("resize", "vertical");
-            trans_per_loc[i].forEach(function (val) {
-                transaction_box.append("p")
-                    .style("line-height", 3 + 'px')
-                    .text(val.timestamp + ', ' + val.name + ', ' + val.cost)
-            });
+        // Get names for person select
+        var sorted_by_name_loc = d3.nest()
+            .key(function (d) {
+                return d.name;
+            })
+            .key(function (d) {
+                return d.location;
+            })
+            .entries(rows);
+        ordered_by_name_loc = {};
+        d3.values(sorted_by_name_loc).map(function (d) {
+            return ordered_by_name_loc[d.key] = d.values;
+        });
+        var names = d3.values(sorted_by_name).map(function (d) {
+            return d.key;
+        });
+        names = names.sort();
+        allNames = names;
 
-            // Sort by time by location
-            var sorted_by_hour = d3.nest()
-                .key(function (d) {
-                    return d.location;
-                })
-                .key(function (d) {
-                    return d.hour;
-                })
-                .entries(rows);
-
-            // Sort alphabetically
-            ordered = {};
-            d3.values(sorted_by_hour).map(function (d) {
-                return ordered[d.key] = d.values;
+        // Create person select
+        d3.select('#person-select').selectAll('option')
+            .data(names)
+            .enter()
+            .append('option')
+            .text(function (d) {
+                return d;
+            })
+            .attr("value", function (d) {
+                return d;
             });
+        $('#person-select').multiselect({
+            buttonWidth: '480px',
+            enableFiltering: false,
+            maxHeight: 200,
+            onChange: function (option, checked) {
+                update_analysis();
+            }
+        });
+        d3.select("#person-select").property("selectedIndex", -1);
 
-            // Get location keys and values
-            var hours = d3.values(locations).map(function (d) {
-                return ordered[d];
-            });
+    });
+
+
+// ***************************
+// Loyalty Data
+// ***************************
+d3.csv('data/loyalty_data.csv')
+    .row((d, i) => {
+        var format_price = d3.format(",.2f");
+        return {
+            date: d.timestamp,
+            location: d.location,
+            name: d.FirstName + ' ' + d.LastName,
+            cost: '$' + format_price(d.price)
+        };
+    })
+    .get((error, rows) => {
+
+        // Get transaction data per location
+        var sorted_by_loc = d3.nest()
+            .key(function (d) {
+                return d.location;
+            })
+            .entries(rows);
+        ordered = {};
+        d3.values(sorted_by_loc).map(function (d) {
+            return ordered[d.key] = d.values;
+        });
+        var unsorted_locations = d3.values(sorted_by_loc).map(function (d) {
+            return d.key;
+        });
+        var locations = unsorted_locations.sort();
+        d3.values(locations).map(function (d) {
+            return allLoyaltyPerLoc[d] = ordered[d];
+        });
+
+        // Get loyalty data per person
+        var sorted_by_name = d3.nest()
+            .key(function (d) {
+                return d.name;
+            })
+            .entries(rows);
+        d3.values(sorted_by_name).map(function (d) {
+            return allLoyaltyPerPerson[d.key] = d.values;
+        });
+
+    });
+
+// ***************************
+// Filter Button
+// ***************************
+var filter_div = d3.select("#reset_btn");
+filter_div.append('button')
+    .text('Reset Selections')
+    .attr('id', 'reset_button')
+    .attr('class', 'btn btn-warning')
+    .on('click', function () {
+        $("#location-select").multiselect("clearSelection");
+        $("#location-select").multiselect('refresh');
+        $("#person-select").multiselect("clearSelection");
+        $("#person-select").multiselect('refresh');
+        svg.selectAll('.route').remove();
+        d3.select("#test").selectAll("*").remove();
+    });
+
+function update_analysis() {
+
+    // Remove old
+    svg.selectAll('.route').remove();
+    var working_div = d3.select('#test');
+    working_div.selectAll("*").remove();
+
+    // Get new values
+    var person_values = $('#person-select').val();
+    var location_values = $('#location-select').val();
+
+    // Draw only location data
+    if (person_values.length == 0 && location_values.length > 0) {
+        location_values.forEach(function (loc_val) {
 
             // Create bar graph
             var x = [];
@@ -245,15 +245,12 @@ d3.csv('data/cc_data.csv')
                 y.push(1);
             }
             var sum = 0;
-            hours[i].forEach(function (item2) {
+            allTransPerLocHours[loc_val].forEach(function (item2) {
                 y[item2.key] = (Math.round(item2.values.length / 2)) + 1;
                 sum = sum + y[item2.key]
             });
-
-            // Add bar chart
-            var time_v_pop_div = transaction_div.append('div').attr("id", locations[i] + '-Transactions-Graph').style("display", "none");;
-            time_v_pop_div.append('h2').append('b').text(locations[i]);
-            time_v_pop_div.append("br").append("br");
+            var time_v_pop_div = working_div.append('div');
+            time_v_pop_div.append('h2').append('b').text(loc_val);
             time_v_pop_div.append("h5").text("Time vs. Popularity").style("font-size", 12 + 'px');
             var bar_chart_div = time_v_pop_div.append("div")
                 .attr("width", 400)
@@ -288,332 +285,242 @@ d3.csv('data/cc_data.csv')
                         return val + ":00";
                     });
             });
-        }
-        // Create location transaction div's
-    });
 
-d3.csv('data/cc_data.csv')
-    .row((d, i) => {
-        var format_price = d3.format(",.2f");
-        return {
-            timestamp: d.timestamp,
-            hour: d.timestamp.split(" ")[1].split(":")[0],
-            location: d.location,
-            name: d.FirstName + ' ' + d.LastName,
-            cost: '$' + format_price(d.price)
-        };
-    })
-    .get((error, rows) => {
-        // Sort by location
-        var sorted_by_name = d3.nest()
-            .key(function (d) {
-                return d.name;
-            })
-            .entries(rows);
-
-        // Sort alphabetically
-        ordered = {};
-        d3.values(sorted_by_name).map(function (d) {
-            return ordered[d.key] = d.values;
-        });
-
-        // Sort by name by location
-        var sorted_by_name_loc = d3.nest()
-            .key(function (d) {
-                return d.name;
-            })
-            .key(function (d) {
-                return d.location;
-            })
-            .entries(rows);
-
-        // Sort alphabetically
-        ordered_by_name_loc = {};
-        d3.values(sorted_by_name_loc).map(function (d) {
-            return ordered_by_name_loc[d.key] = d.values;
-        });
-
-        // Get location keys and values
-        var names = d3.values(sorted_by_name).map(function (d) {
-            return d.key;
-        });
-        var names = names.sort();
-
-        var trans_per_person = d3.values(names).map(function (d) {
-            return ordered[d]
-        });
-
-        // Select div to work in
-        var transaction_div = d3.select("#pills-analysis");
-
-        d3.select('#person-select').selectAll('option')
-            .data(names)
-            .enter()
-            .append('option')
-            .text(function (d) {
-                return d;
-            })
-            .attr("value", function (d) {
-                return d;
+            // Create transaction information per location
+            var transaction_per_location = working_div.append('div');
+            transaction_per_location.append("br");
+            transaction_per_location.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
+            var transaction_box = transaction_per_location.append("div")
+                .style("width", 450 + 'px')
+                .style("border", 2 + 'px solid #ccc')
+                .style("height", 80 + 'px')
+                .style("padding", 10 + 'px')
+                .style("overflow", "auto")
+                .style("resize", "vertical");
+            allTransPerLoc[loc_val].forEach(function (val) {
+                if (filteredRange) {
+                    if (filteredRange.contains(moment(val.timestamp))) {
+                        transaction_box.append("p")
+                            .style("line-height", 3 + 'px')
+                            .text(val.timestamp + ', ' + val.name + ', ' + val.cost)
+                    }
+                } else {
+                    transaction_box.append("p")
+                        .style("line-height", 3 + 'px')
+                        .text(val.timestamp + ', ' + val.name + ', ' + val.cost)
+                }
             });
 
-        $('#person-select').multiselect({
-            buttonWidth: '480px',
-            enableFiltering: false,
-            maxHeight: 200,
-            onChange: function (option, checked) {
-                var values = $('#person-select').val();
-                var working_div = d3.select('#test');
+            // Create loyalty information per location
+            var loyalty_per_location = working_div.append('div');
+            loyalty_per_location.append("br");
+            loyalty_per_location.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
+            var transaction_box = loyalty_per_location.append("div")
+                .style("width", 450 + 'px')
+                .style("border", 2 + 'px solid #ccc')
+                .style("height", 80 + 'px')
+                .style("padding", 10 + 'px')
+                .style("overflow", "auto")
+                .style("resize", "vertical");
+            allLoyaltyPerLoc[loc_val].forEach(function (val) {
+                if (filteredRange) {
+                    if (filteredRange.contains(moment(val.date))) {
+                        transaction_box.append("p")
+                            .style("line-height", 3 + 'px')
+                            .text(val.date + ', ' + val.name + ', ' + val.cost)
+                    }
+                } else {
+                    transaction_box.append("p")
+                        .style("line-height", 3 + 'px')
+                        .text(val.date + ', ' + val.name + ', ' + val.cost)
+                }
+            });
 
-                lastPersonSelection.forEach(function (val) {
-                    d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "none");
-                    d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "none");
-                });
-                lastPersonSelection = values;
-                lastLocationSelection.forEach(function (val) {
-                    d3.select('[id="' + val + '-Transactions"]').style("display", "none");
-                    d3.select('[id="' + val + '-Loyalty"]').style("display", "none");
-                    d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "none");
-                });
+            working_div.append('br');
+        });
+        // Draw only person data
+    } else if (location_values.length == 0 && person_values.length > 0 ) {
+        person_values.forEach(function (person_val) {
+            selectedPerson = car_id_to_name[person_val];
+            if (filteredRange) {
+                var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+                var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
 
-                // Remove Routes
-                svg.selectAll('.route').remove();
-                working_div.selectAll("*").remove();
+                drawRoutes(filteredDataTime, filteredGpsStops);
+            } else {
+                var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
+                var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
+                drawRoutes(filteredData, filteredGpsStops);
+            }
 
-                if (lastPersonSelection.length == 0) {
-                    var values = $('#location-select').val();
-                    values.forEach(function (val) {
-                        $('[id="' + val + '-Transactions"]').remove().insertAfter($('[id="' + val + '-Transactions-Graph"]'));
-                        $('[id="' + val + '-Loyalty"]').remove().insertAfter($('[id="' + val + '-Transactions"]'));
-                        d3.select('[id="' + val + '-Transactions-Graph"]').style("display", "block");
-                        d3.select('[id="' + val + '-Transactions"]').style("display", "block");
-                        d3.select('[id="' + val + '-Loyalty"]').style("display", "block");
+            // Create transaction per person data
+            var transaction_per_person = working_div.append('div').attr("id", 'transaction-data');
+            transaction_per_person.append('h2').append('b').text(person_val);
+            transaction_per_person.append("br");
+            transaction_per_person.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
+            var transaction_box = transaction_per_person.append("div")
+                .style("width", 450 + 'px')
+                .style("border", 2 + 'px solid #ccc')
+                .style("height", 80 + 'px')
+                .style("padding", 10 + 'px')
+                .style("overflow", "auto")
+                .style("resize", "vertical");
+
+            allTransPerPerson[person_val].forEach(function (val) {
+                if (filteredRange) {
+                    if (filteredRange.contains(moment(val.timestamp))) {
+                        transaction_box.append("p")
+                            .style("line-height", 3 + 'px')
+                            .text(val.timestamp + ', ' + val.location + ', ' + val.cost)
+                    }
+                } else {
+                    transaction_box.append("p")
+                        .style("line-height", 3 + 'px')
+                        .text(val.timestamp + ', ' + val.location + ', ' + val.cost)
+                }
+
+            });
+            transaction_per_person.append("br");
+
+            // Create loyalty per person data
+            var loyalty_per_person = working_div.append('div').attr('id', 'loyalty-data');
+            loyalty_per_person.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
+            var loyalty_box = loyalty_per_person.append("div")
+                .style("width", 450 + 'px')
+                .style("border", 2 + 'px solid #ccc')
+                .style("height", 80 + 'px')
+                .style("padding", 10 + 'px')
+                .style("overflow", "auto")
+                .style("resize", "vertical");
+            allLoyaltyPerPerson[person_val].forEach(function (val) {
+                if (filteredRange) {
+                    if (filteredRange.contains(moment(val.date))) {
+                        loyalty_box.append("p")
+                            .style("line-height", 3 + 'px')
+                            .text(val.date + ', ' + val.location + ', ' + val.cost)
+                    }
+                } else {
+                    loyalty_box.append("p")
+                        .style("line-height", 3 + 'px')
+                        .text(val.date + ', ' + val.location + ', ' + val.cost)
+                }
+            });
+            loyalty_per_person.append("br");
+        });
+        // Draw person and location data
+    } else if (location_values.length > 0 && person_values.length > 0) {
+        person_values.forEach(function (person_val) {
+            selectedPerson = car_id_to_name[person_val];
+            if (filteredRange) {
+                var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+                var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+
+                drawRoutes(filteredDataTime, filteredGpsStops);
+            } else {
+                var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
+                var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
+                drawRoutes(filteredData, filteredGpsStops);
+            }
+
+            ordered_again_by_name_loc = {};
+            d3.values(ordered_by_name_loc[person_val]).map(function (d) {
+                return ordered_again_by_name_loc[d.key] = d.values;
+            });
+
+            location_values.forEach(function (person_loc) {
+                var name_loc_data = ordered_again_by_name_loc[person_loc];
+                working_div.append('h5').text(person_val + ' at ' + person_loc);
+
+                if (name_loc_data) {
+
+                    // Add bar chart
+                    var x = [];
+                    var y = [];
+                    var sum = 0;
+                    for (var j = 0; j < 24; j++) {
+                        x.push(j);
+                        y.push(1);
+                    }
+                    name_loc_data.forEach(function (name_loc_hour) {
+                        y[name_loc_hour.hour] = y[name_loc_hour.hour] + 1;
+                        sum = sum + 1;
                     });
-                } else if (lastLocationSelection.length > 0) {
-                    // Get names and locations
-                    lastPersonSelection.forEach(function (person) {
-                        // Make a dict
-                        ordered_again_by_name_loc = {};
-                        d3.values(ordered_by_name_loc[person]).map(function (d) {
-                            return ordered_again_by_name_loc[d.key] = d.values;
-                        });
+                    working_div.append("h5").text("Visit Times").style("font-size", 12 + 'px');
+                    var bar_chart_div = working_div.append("div")
+                        .attr("width", 400)
+                        .attr("height", 100);
+                    for (var j = 0; j < 24; j++) {
+                        bar_chart_div.append("svg")
+                            .attr("width", 15)
+                            .attr("height", 100)
+                            .append("rect")
+                            .attr("y", function (d) {
+                                if (y[j] > 1) {
+                                    return 95 - (y[j] / sum) * 100;
+                                } else {
+                                    return 94
+                                }
+                            })
+                            .attr("width", 15)
+                            .attr("fill", "black")
+                            .attr("height", function (d) {
+                                if (y[j] > 1) {
+                                    return (y[j] / sum) * 100;
+                                } else {
+                                    return 1
+                                }
+                            });
+                    }
+                    x.forEach(function (val) {
+                        working_div.append("text")
+                            .style("font-size", 10 + 'px')
+                            .style("writing-mode", "tb-rl")
+                            .text(function (d) {
+                                return val + ":00";
+                            });
+                    });
 
-                        lastLocationSelection.forEach(function (person_loc) {
-                            var name_loc_data = ordered_again_by_name_loc[person_loc];
+                    // Add Transaction Information
+                    working_div.append('br');
+                    working_div.append('br');
+                    working_div.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
+                    var transaction_for_name_loc = working_div.append("div")
+                        .style("width", 450 + 'px')
+                        .style("border", 2 + 'px solid #ccc')
+                        .style("height", 80 + 'px')
+                        .style("padding", 10 + 'px')
+                        .style("overflow", "auto")
+                        .style("resize", "vertical");
 
-                            working_div.append('h5').text(person + ' at ' + person_loc);
-                            var transaction_for_name_loc = working_div.append("div")
-                                .style("width", 450 + 'px')
-                                .style("border", 2 + 'px solid #ccc')
-                                .style("height", 80 + 'px')
-                                .style("padding", 10 + 'px')
-                                .style("overflow", "auto")
-                                .style("resize", "vertical");
-                            if (name_loc_data) {
-                                name_loc_data.forEach(function (val) {
-                                    transaction_for_name_loc.append("p")
-                                        .style("line-height", 3 + 'px')
-                                        .text(val.timestamp + ', ' + val.cost)
-                                });
-                            } else {
-                                transaction_for_name_loc.append('p').text('No Transaction Information')
+                    name_loc_data.forEach(function (val) {
+                        if (filteredRange) {
+                            if (filteredRange.contains(moment(val.timestamp))) {
+                                transaction_for_name_loc.append("p")
+                                    .style("line-height", 3 + 'px')
+                                    .text(val.timestamp + ', ' + val.cost);
                             }
-                            working_div.append('br');
-                        });
-                    });
-                } else if (lastPersonSelection.length == 1) {
-                    selectedPerson = car_id_to_name[lastPersonSelection[0]];
-                    var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
-                    var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[values[0]]);
-                    console.log("stops2:");
-                    console.log(filteredGpsStops);
-
-                    drawRoutes(filteredData, filteredGpsStops);
-
-                    values.forEach(function (val) {
-                        $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
-                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
-                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
+                        } else {
+                            transaction_for_name_loc.append("p")
+                                .style("line-height", 3 + 'px')
+                                .text(val.timestamp + ', ' + val.cost);
+                        }
                     });
                 } else {
-                    values.forEach(function (val) {
-                        $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
-                        d3.select('[id="' + val + '-Transactions-Per-Person"]').style("display", "block");
-                        d3.select('[id="' + val + '-Loyalty-Per-Person"]').style("display", "block");
-                    });
+                    // Add empty box
+                    var transaction_for_name_loc = working_div.append("div")
+                        .style("width", 450 + 'px')
+                        .style("border", 2 + 'px solid #ccc')
+                        .style("height", 80 + 'px')
+                        .style("padding", 10 + 'px')
+                        .style("overflow", "auto")
+                        .style("resize", "vertical");
+                    transaction_for_name_loc.append('p').text('No Transaction Information')
                 }
-            }
-        });
-
-        d3.select("#person-select").property("selectedIndex", -1);
-
-        // Create dropdown
-        var filter_div = d3.select("#location_dropdown");
-        filter_div.append("br");
-        filter_div.append("br");
-
-        // Create location transaction div's
-        for (var i = 0; i < names.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", names[i] + '-Transactions-Per-Person').style("display", "none");
-            location_div.append('h2').append('b').text(names[i]);
-            location_div.append("br").append("br");
-
-            location_div.append('h5').text("Transaction Information").style("font-size", 12 + 'px');
-            var transaction_box = location_div.append("div")
-                .style("width", 450 + 'px')
-                .style("border", 2 + 'px solid #ccc')
-                .style("height", 80 + 'px')
-                .style("padding", 10 + 'px')
-                .style("overflow", "auto")
-                .style("resize", "vertical");
-            trans_per_person[i].forEach(function (val) {
-                transaction_box.append("p")
-                    .style("line-height", 3 + 'px')
-                    .text(val.timestamp + ', ' + val.location + ', ' + val.cost)
+                working_div.append('br');
             });
-            location_div.append("br");
-        }
-    });
-
-d3.csv('data/loyalty_data.csv')
-    .row((d, i) => {
-        var format_price = d3.format(",.2f");
-        return {
-            date: d.timestamp,
-            location: d.location,
-            name: d.FirstName + ' ' + d.LastName,
-            cost: '$' + format_price(d.price)
-        };
-    })
-    .get((error, rows) => {
-        // Sort by location
-        var sorted_by_loc = d3.nest()
-            .key(function (d) {
-                return d.location;
-            })
-            .entries(rows);
-
-        // Sort alphabetically
-        ordered = {};
-        d3.values(sorted_by_loc).map(function (d) {
-            return ordered[d.key] = d.values;
         });
-
-        var locations = locations = d3.values(sorted_by_loc).map(function (d) {
-            return d.key;
-        });
-        locations = locations.sort();
-
-        // Get location keys and values
-        let difference = locations
-            .filter(x => !allLocations.includes(x))
-            .concat(allLocations.filter(x => !locations.includes(x)));
-
-        for (var i = 0; i < difference.length; i++) {
-            ordered[difference[i]] = [];
-        }
-
-        locations = allLocations;
-
-        var trans_per_loc = d3.values(locations).map(function (d) {
-            return ordered[d];
-        });
-
-        // Select div to work in
-        var transaction_div = d3.select("#pills-analysis");
-
-        // Create location transaction div's
-        for (var i = 0; i < locations.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", locations[i] + '-Loyalty').style("display", "none");
-
-            location_div.append("br");
-            location_div.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
-            var transaction_box = location_div.append("div")
-                .style("width", 450 + 'px')
-                .style("border", 2 + 'px solid #ccc')
-                .style("height", 80 + 'px')
-                .style("padding", 10 + 'px')
-                .style("overflow", "auto")
-                .style("resize", "vertical");
-            trans_per_loc[i].forEach(function (val) {
-                transaction_box.append("p")
-                    .style("line-height", 3 + 'px')
-                    .text(val.date + ', ' + val.name + ', ' + val.cost)
-            });
-            location_div.append("br");
-        }
-    });
-
-d3.csv('data/loyalty_data.csv')
-    .row((d, i) => {
-        var format_price = d3.format(",.2f");
-        return {
-            date: d.timestamp,
-            location: d.location,
-            name: d.FirstName + ' ' + d.LastName,
-            cost: '$' + format_price(d.price)
-        };
-    })
-    .get((error, rows) => {
-        // Sort by location
-        var sorted_by_name = d3.nest()
-            .key(function (d) {
-                return d.name;
-            })
-            .entries(rows);
-
-        // Sort alphabetically
-        ordered = {};
-        d3.values(sorted_by_name).map(function (d) {
-            return ordered[d.key] = d.values;
-        });
-
-        // Get location keys and values
-        var names = d3.values(sorted_by_name).map(function (d) {
-            return d.key;
-        });
-        var names = names.sort();
-
-        var trans_per_person = d3.values(names).map(function (d) {
-            return ordered[d]
-        });
-
-        // Select div to work in
-        var transaction_div = d3.select("#pills-analysis");
-
-        // Create location transaction div's
-        for (var i = 0; i < names.length; i++) {
-            var location_div = transaction_div.append('div').attr("id", names[i] + '-Loyalty-Per-Person').style("display", "none");
-
-            location_div.append('h5').text("Loyalty Card Information").style("font-size", 12 + 'px');
-            var transaction_box = location_div.append("div")
-                .style("width", 450 + 'px')
-                .style("border", 2 + 'px solid #ccc')
-                .style("height", 80 + 'px')
-                .style("padding", 10 + 'px')
-                .style("overflow", "auto")
-                .style("resize", "vertical");
-            trans_per_person[i].forEach(function (val) {
-                transaction_box.append("p")
-                    .style("line-height", 3 + 'px')
-                    .text(val.date + ', ' + val.location + ', ' + val.cost)
-            });
-            location_div.append("br");
-        }
-    });
-
-var filter_div = d3.select("#reset_btn");
-
-filter_div.append('button')
-    .text('Reset Selections')
-    .attr('id', 'reset_button')
-    .attr('class', 'btn btn-warning')
-    .on('click', function () {
-        $("#location-select").multiselect("clearSelection");
-        $("#location-select").multiselect('refresh');
-        $("#person-select").multiselect("clearSelection");
-        $("#person-select").multiselect('refresh');
-    });
+    }
+}
 
 
 // ************************************* GPS DATA *************************************
@@ -660,6 +567,10 @@ d3.queue()
 // carAssign - Car Assginment Data 
 // *****************************
 function ready(error, d, places, gps, carAssign, gps_stops) {
+
+    d3.values(carAssign).map(function (d) {
+        return car_id_to_name[d.FirstName + ' ' + d.LastName] = d.CarID;
+    });
 
     projection.fitExtent([
         [0, 0],
@@ -723,14 +634,9 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
         // End Date. For example (01/19/2014)
         var endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${prependZero(parseInt(values[1]))}/${theMinDate.getFullYear()}`);
         // Get Range between start and end date
-        var filteredRange = moment.range(startDate, endDate);
-        // Get selectedPerson id from checkbox and whether the date is within a range 
-        var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-        var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-        console.log("stops3:");
-        console.log(filteredGpsStops);
-
-        drawRoutes(filteredDataTime, filteredGpsStops);
+        filteredRange = moment.range(startDate, endDate);
+        // Get selectedPerson id from checkbox and whether the date is within a range
+        update_analysis()
 
     });
 
@@ -757,10 +663,6 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-
-    d3.values(carAssign).map(function (d) {
-        return car_id_to_name[d.FirstName + ' ' + d.LastName] = d.CarID;
-    });
 }
 
 function drawRoutes(data, stops) {
