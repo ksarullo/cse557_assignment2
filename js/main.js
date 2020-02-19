@@ -220,6 +220,7 @@ filter_div.append('button')
         $("#person-select").multiselect('refresh');
         svg.selectAll('.route').remove();
         svg.selectAll(".stops").remove();
+        svg.selectAll(".stops-text").remove()
         d3.select("#test").selectAll("*").remove();
         dragSlider.noUiSlider.reset()
     });
@@ -229,6 +230,7 @@ function update_analysis() {
     // Remove old
     svg.selectAll('.route').remove();
     svg.selectAll(".stops").remove();
+    svg.selectAll(".stops-text").remove()
     var working_div = d3.select('#test');
     working_div.selectAll("*").remove();
 
