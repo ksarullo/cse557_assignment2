@@ -117,3 +117,7 @@ path {
 .noUi-active .noUi-tooltip {
     display: block;
 }
+
+.noUi-connect {
+    background: #007bff;
+}
