@@ -11,11 +11,12 @@ var allTransPerLoc = {};
 var allLoyaltyPerPerson = {};
 var allLoyaltyPerLoc = {};
 var allTransPerLocHours = {};
-var colors = ["#e41a1c","#377eb8","#4daf4a","#984ea3","#ff7f00","#ffff33","#a65628","#f781bf","#999999","#66c2a5",
-    "#fc8d62","#8da0cb","#e78ac3","#a6d854","#ffd92f","#e5c494","#b3b3b3","#8dd3c7","#ffffb3","#bebada","#fb8072",
-    "#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f","#1f77b4","#ff7f0e","#2ca02c",
-    "#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf","#1b9e77","#d95f02","#7570b3","#e7298a",
-    "#66a61e","#e6ab02","#a6761d","#666666","#7fc97f","#beaed4","#fdc086","#ffff99","#386cb0","#f0027f","#bf5b17"];
+var colors = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33", "#a65628", "#f781bf", "#999999", "#66c2a5",
+    "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3", "#8dd3c7", "#ffffb3", "#bebada", "#fb8072",
+    "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f", "#1f77b4", "#ff7f0e", "#2ca02c",
+    "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf", "#1b9e77", "#d95f02", "#7570b3", "#e7298a",
+    "#66a61e", "#e6ab02", "#a6761d", "#666666", "#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17"
+];
 
 var selectedPerson;
 var filteredRange;
@@ -352,7 +353,7 @@ function update_analysis() {
             working_div.append('br');
         });
         // Draw only person data
-    } else if (location_values.length == 0 && person_values.length > 0 ) {
+    } else if (location_values.length == 0 && person_values.length > 0) {
         person_values.forEach(function (person_val, idx) {
             selectedPerson = car_id_to_name[person_val];
             color = colors[idx];
@@ -682,6 +683,23 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    kronos_label = svg.selectAll('text')
+        .data([
+            [24.884336883952745, 36.09043131066342]
+        ])
+        .enter()
+        .append('text')
+        .attr('x', function (d) {
+            return projection(d)[0]
+        })
+        .attr('y', function (d) {
+            return projection(d)[1]
+        })
+        .text('Abila, Kronos')
+        .attr('dy', '.1em')
+        .attr('fill', 'grey')
+        .attr('font-size', '2.2em')
 }
 
 function drawRoutes(data, stops, color) {
@@ -743,14 +761,14 @@ function drawRoutes(data, stops, color) {
         .enter()
         .append('text')
         .attr('dx', function (d) {
-            return projection([d.long, d.lat])[0]-4;
+            return projection([d.long, d.lat])[0] - 4;
         })
         .attr('dy', function (d) {
-            return projection([d.long, d.lat])[1]+4;
+            return projection([d.long, d.lat])[1] + 4;
         })
         .attr('class', 'stops-text')
         .text(function (d, i) {
-            return i+1;
+            return i + 1;
         })
 }
 
@@ -759,6 +777,7 @@ svg.call(zoom);
 function zoomed() {
     view.attr("transform", d3.event.transform);
     stores.attr("transform", d3.event.transform);
+    kronos_label.attr("transform", d3.event.transform);
     employee_paths.attr("transform", d3.event.transform);
     employee_stops.attr("transform", d3.event.transform);
     employee_stops_text.attr("transform", d3.event.transform);
