@@ -220,6 +220,7 @@ filter_div.append('button')
         $("#person-select").multiselect('refresh');
         svg.selectAll('.route').remove();
         d3.select("#test").selectAll("*").remove();
+        dragSlider.noUiSlider.reset()
     });
 
 function update_analysis() {

@@ -26,8 +26,12 @@
                 <!-- List of tabs in our sidebar-->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-filter-tab" data-toggle="pill" href="#pills-filter"
-                            role="tab" aria-controls="pills-filter" aria-selected="true">Filter</a>
+                        <a class="nav-link active" id="pills-user-guide-tab" data-toggle="pill" href="#pills-user-guide"
+                           role="tab" aria-controls="pills-user-guide" aria-selected="true">User Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-filter-tab" data-toggle="pill" href="#pills-filter"
+                            role="tab" aria-controls="pills-filter" aria-selected="false">Filter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-analysis-tab" data-toggle="pill" href="#pills-analysis" role="tab"
@@ -37,23 +41,25 @@
 
                 <!-- The content of our tabs go in these divs -->
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-filter" role="tabpanel"
-                        aria-labelledby="pills-filter-tab">
+                    <div class="tab-pane fade show active" id="pills-user-guide" role="tabpanel" aria-labelledby="pills-user-guide-tab">
+                        <div id="user-guide";">
+                        <p><b>**Please read before using**</b></p>
+                        <p>Users can select:</p>
+                        <ul>
+                            <li>One or more location(s) to view location data, or</li>
+                            <li>One or more employee(s) to view employee data, or</li>
+                            <li>One or more location(s) and employee(s) to view employee data at a location, or</li>
+                            <li>One employee to see GPS route history, and</li>
+                            <li>Filter all data by date</li>
+                        </ul>
+                        <p>Switch to the <b>Filter Tab</b> when you are ready to make selections.</p>
+                        <p>Switch to the <b>Analysis Tab</b> when you are done making your selections.</p>
+                    </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-filter" role="tabpanel" aria-labelledby="pills-filter-tab">
                         <!-- all the code regarding data filtering goes here (i.e. drop down menus, etc)-->
-
-                        <div id="user-guide" style="text-align: justify;">
-                            <p><b>User Guide</b></p>
-                            <p>Choose:</p>
-                            <ul>
-                                <li>1+ location(s) to view location data</li>
-                                <li>1+ employee(s) to view employee data</li>
-                                <li>1+ location(s) and 1+ employee(s) to view employee data at a location</li>
-                                <li>1 employee to see GPS route history</li>
-                            </ul>
-                            <p>Switch to the Analysis Tab when you are done selecting employees and locations.</p>
-                        </div>
                         <hr />
-                        <p class="text-center lead">Time Filter</p>
+                        <p class="text-center">Time Filter</p>
                         <div id="slider" class="col-12"></div>
                         <div class="d-flex justify-content-between mt-2">
                             <p id="lower-value">Lower</p>
@@ -61,11 +67,11 @@
                         </div>
                         <hr />
 
-
-                        <p>Choose one or more employees: </p>
-                        <select class="form-control" id="person-select" multiple hidden></select>
-
-                        <div id="employee_dropdown"></div>
+                        <div id="employee_dropdown">
+                            <p>Choose one or more employees: </p>
+                            <select class="form-control" id="person-select" multiple hidden></select>
+                        </div>
+                        <br />
                         <div id="location_dropdown"></div>
                         <br />
                         <div id="reset_btn"> </div>
