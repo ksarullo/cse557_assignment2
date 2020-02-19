@@ -125,8 +125,11 @@ d3.csv('data/cc_data.csv')
 
                         // Draw first selected route
                         var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
+                        var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[values[0]]);
+                        console.log("stops1:");
+                        console.log(filteredGpsStops);
 
-                        drawRoutes(filteredData);
+                        drawRoutes(filteredData, filteredGpsStops);
 
 
                         /*
@@ -421,7 +424,11 @@ d3.csv('data/cc_data.csv')
                 } else if (lastPersonSelection.length == 1) {
                     selectedPerson = car_id_to_name[lastPersonSelection[0]];
                     var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
-                    drawRoutes(filteredData);
+                    var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[values[0]]);
+                    console.log("stops2:");
+                    console.log(filteredGpsStops);
+
+                    drawRoutes(filteredData, filteredGpsStops);
 
                     values.forEach(function (val) {
                         $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
@@ -621,6 +628,7 @@ var height = document.getElementById('map-card').offsetHeight - 100;
 var projection = d3.geoMercator()
 var path = d3.geoPath().projection(projection);
 var gpsData;
+var gpsStops;
 var svg = d3.select('#map-card').append('svg')
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("viewBox", "0 0 " + String(width) + " " + String(height))
@@ -642,6 +650,7 @@ d3.queue()
     .defer(d3.json, 'data/places.json')
     .defer(d3.csv, 'data/gps_reduced.csv')
     .defer(d3.csv, 'data/car-assignments.csv')
+    .defer(d3.csv, 'data/gps_stops.csv')
     .await(ready);
 
 // *****************************
@@ -650,7 +659,7 @@ d3.queue()
 // gps - GPS data for each employee
 // carAssign - Car Assginment Data 
 // *****************************
-function ready(error, d, places, gps, carAssign) {
+function ready(error, d, places, gps, carAssign, gps_stops) {
 
     projection.fitExtent([
         [0, 0],
@@ -661,6 +670,7 @@ function ready(error, d, places, gps, carAssign) {
         .enter().append('path')
         .attr('d', path)
     gpsData = gps;
+    gpsStops = gps_stops;
     // Get Min Data 
     var minData = d3.min(gps.map(d => d.Timestamp));
     // Get Max Data
@@ -716,7 +726,12 @@ function ready(error, d, places, gps, carAssign) {
         var filteredRange = moment.range(startDate, endDate);
         // Get selectedPerson id from checkbox and whether the date is within a range 
         var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
-        drawRoutes(filteredDataTime);
+        var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
+        console.log("stops3:");
+        console.log(filteredGpsStops);
+
+        drawRoutes(filteredDataTime, filteredGpsStops);
+
     });
 
     // Create places as Image Icon
@@ -748,7 +763,7 @@ function ready(error, d, places, gps, carAssign) {
     });
 }
 
-function drawRoutes(data) {
+function drawRoutes(data, stops) {
     console.log('DrawRoutes triggered!')
     // Convert String to Number
     resetted();
@@ -783,6 +798,24 @@ function drawRoutes(data) {
             return path(d)
         })
         .attr('class', 'route')
+
+    svg.selectAll(".stops").remove()
+    employee_stops = svg.append("g")
+        .selectAll("circle")
+        .data(stops)
+        .enter()
+        .append('circle')
+        .attr('cx', function (d) {
+            return projection([d.long, d.lat])[0];
+        })
+        .attr('cy', function (d) {
+            return projection([d.long, d.lat])[1];
+        })
+        .attr('title', function (d, i) {
+            console.log(i+1);
+            return i+1;
+        })
+        .attr('class', 'stops')
 }
 
 svg.call(zoom);
@@ -791,7 +824,9 @@ function zoomed() {
     view.attr("transform", d3.event.transform);
     stores.attr("transform", d3.event.transform);
     employee_paths.attr("transform", d3.event.transform);
+    employee_stops.attr("transform", d3.event.transform);
 }
+
 
 function resetted() {
     svg.transition()

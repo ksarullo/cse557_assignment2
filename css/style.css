@@ -121,3 +121,8 @@ path {
 .noUi-connect {
     background: #007bff;
 }
+
+.stops{
+    r: 5px;
+    fill: red;
+}
