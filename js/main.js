@@ -228,10 +228,11 @@ filter_div.append('button')
         svg.selectAll(".stops-text").remove();
         d3.select("#test").selectAll("*").remove();
         dragSlider.noUiSlider.reset();
-        dragSlider.noUiSlider.set([theMinDate.getDate(), theMaxDate.getDate()])
         nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${theMinDate.getDate()} / ${theMinDate.getFullYear()}`;
         nodes[1].innerHTML = `${theMaxDate.getMonth() + 1} / ${theMaxDate.getDate()} / ${theMaxDate.getFullYear()}`;
-
+        startDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMinDate.getDate()}/${theMinDate.getFullYear()}`);
+        endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMaxDate.getDate()}/${theMinDate.getFullYear()}`);
+        filteredRange = moment.range(startDate, endDate);
     });
 
 function update_analysis() {
@@ -579,6 +580,14 @@ d3.queue()
     .defer(d3.csv, 'data/gps_stops.csv')
     .await(ready);
 
+// Add 0 if the number is one digit
+function prependZero(number) {
+    if (number < 9)
+        return "0" + number;
+    else
+        return number;
+}
+
 // *****************************
 // d - Map of Abila
 // places - Location of stores/company
@@ -635,17 +644,8 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
     // End Date. For example (01/19/2014)
     endDate = moment(`${prependZero(theMinDate.getMonth() + 1)}/${theMaxDate.getDate()}/${theMinDate.getFullYear()}`);
 
-    // Add 0 if the number is one digit
-    function prependZero(number) {
-        if (number < 9)
-            return "0" + number;
-        else
-            return number;
-    }
-
     // Listen Slider Change
     dragSlider.noUiSlider.on('change', function (values, handle) {
-        console.log(values)
         nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[0])} / ${theMinDate.getFullYear()}`;
         nodes[1].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[1])} / ${theMinDate.getFullYear()}`;
 
