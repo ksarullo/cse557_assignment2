@@ -11,12 +11,16 @@ var allTransPerLoc = {};
 var allLoyaltyPerPerson = {};
 var allLoyaltyPerLoc = {};
 var allTransPerLocHours = {};
-const space_date_parser = d3.timeParse("%m / %d / %Y");
-const datetime_parser = d3.timeParse("%m/%d/%Y %H:%M");
-
+var colors = ["#e41a1c","#377eb8","#4daf4a","#984ea3","#ff7f00","#ffff33","#a65628","#f781bf","#999999","#66c2a5",
+    "#fc8d62","#8da0cb","#e78ac3","#a6d854","#ffd92f","#e5c494","#b3b3b3","#8dd3c7","#ffffb3","#bebada","#fb8072",
+    "#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f","#1f77b4","#ff7f0e","#2ca02c",
+    "#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf","#1b9e77","#d95f02","#7570b3","#e7298a",
+    "#66a61e","#e6ab02","#a6761d","#666666","#7fc97f","#beaed4","#fdc086","#ffff99","#386cb0","#f0027f","#bf5b17"];
 
 var selectedPerson;
 var filteredRange;
+var theMinDate;
+var theMaxDate;
 window['moment-range'].extendMoment(moment);
 
 // ***************************
@@ -220,9 +224,13 @@ filter_div.append('button')
         $("#person-select").multiselect('refresh');
         svg.selectAll('.route').remove();
         svg.selectAll(".stops").remove();
-        svg.selectAll(".stops-text").remove()
+        svg.selectAll(".stops-text").remove();
         d3.select("#test").selectAll("*").remove();
-        dragSlider.noUiSlider.reset()
+        dragSlider.noUiSlider.reset();
+        dragSlider.noUiSlider.set([theMinDate.getDate(), theMaxDate.getDate()])
+        nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${theMinDate.getDate()} / ${theMinDate.getFullYear()}`;
+        nodes[1].innerHTML = `${theMaxDate.getMonth() + 1} / ${theMaxDate.getDate()} / ${theMaxDate.getFullYear()}`;
+
     });
 
 function update_analysis() {
@@ -230,7 +238,7 @@ function update_analysis() {
     // Remove old
     svg.selectAll('.route').remove();
     svg.selectAll(".stops").remove();
-    svg.selectAll(".stops-text").remove()
+    svg.selectAll(".stops-text").remove();
     var working_div = d3.select('#test');
     working_div.selectAll("*").remove();
 
@@ -345,17 +353,19 @@ function update_analysis() {
         });
         // Draw only person data
     } else if (location_values.length == 0 && person_values.length > 0 ) {
-        person_values.forEach(function (person_val) {
+        person_values.forEach(function (person_val, idx) {
             selectedPerson = car_id_to_name[person_val];
+            color = colors[idx];
+
             if (filteredRange) {
                 var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
                 var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
 
-                drawRoutes(filteredDataTime, filteredGpsStops);
+                drawRoutes(filteredDataTime, filteredGpsStops, color);
             } else {
                 var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
                 var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
-                drawRoutes(filteredData, filteredGpsStops);
+                drawRoutes(filteredData, filteredGpsStops, color);
             }
 
             // Create transaction per person data
@@ -414,18 +424,21 @@ function update_analysis() {
         });
         // Draw person and location data
     } else if (location_values.length > 0 && person_values.length > 0) {
-        person_values.forEach(function (person_val) {
+        person_values.forEach(function (person_val, idx) {
             selectedPerson = car_id_to_name[person_val];
+            color = colors[idx];
+
             if (filteredRange) {
                 var filteredDataTime = gpsData.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
                 var filteredGpsStops = gpsStops.filter(d => d.id == selectedPerson && filteredRange.contains(moment(d.Timestamp)));
 
-                drawRoutes(filteredDataTime, filteredGpsStops);
+                drawRoutes(filteredDataTime, filteredGpsStops, color);
             } else {
                 var filteredData = gpsData.filter(d => d.id == car_id_to_name[person_val]);
                 var filteredGpsStops = gpsStops.filter(d => d.id == car_id_to_name[person_val]);
-                drawRoutes(filteredData, filteredGpsStops);
+                drawRoutes(filteredData, filteredGpsStops, color);
             }
+
 
             ordered_again_by_name_loc = {};
             d3.values(ordered_by_name_loc[person_val]).map(function (d) {
@@ -591,8 +604,8 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
     var minData = d3.min(gps.map(d => d.Timestamp));
     // Get Max Data
     var maxData = d3.max(gps.map(d => d.Timestamp));
-    var theMinDate = new Date(minData);
-    var theMaxDate = new Date(maxData);
+    theMinDate = new Date(minData);
+    theMaxDate = new Date(maxData);
 
     // Create Slide
     noUiSlider.create(slider, {
@@ -631,6 +644,7 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
 
     // Listen Slider Change
     dragSlider.noUiSlider.on('change', function (values, handle) {
+        console.log(values)
         nodes[0].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[0])} / ${theMinDate.getFullYear()}`;
         nodes[1].innerHTML = `${theMinDate.getMonth() + 1} / ${parseInt(values[1])} / ${theMinDate.getFullYear()}`;
 
@@ -670,8 +684,8 @@ function ready(error, d, places, gps, carAssign, gps_stops) {
     })
 }
 
-function drawRoutes(data, stops) {
-    console.log('DrawRoutes triggered!')
+function drawRoutes(data, stops, color) {
+    console.log('DrawRoutes triggered!');
     // Convert String to Number
     resetted();
     data = data.map(d => {
@@ -694,7 +708,7 @@ function drawRoutes(data, stops) {
             ]
         });
     }
-    svg.selectAll(".route").remove()
+    // svg.selectAll(".route").remove();
     // Create Routes
     employee_paths = svg.append("g")
         .selectAll("path")
@@ -705,8 +719,10 @@ function drawRoutes(data, stops) {
             return path(d)
         })
         .attr('class', 'route')
+        .style("stroke", color)
+        .style("stroke-width", 2);
 
-    svg.selectAll(".stops").remove();
+    // svg.selectAll(".stops").remove();
     employee_stops = svg.append("g")
         .selectAll("circle")
         .data(stops)
@@ -720,7 +736,7 @@ function drawRoutes(data, stops) {
         })
         .attr('class', 'stops')
 
-    svg.selectAll(".stops-text").remove()
+    // svg.selectAll(".stops-text").remove()
     employee_stops_text = svg.append("g")
         .selectAll("circle")
         .data(stops)
