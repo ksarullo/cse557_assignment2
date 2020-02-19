@@ -65,7 +65,7 @@ d3.csv('data/cc_data.csv')
         var transaction_div = d3.select("#pills-analysis");
 
         // Create dropdown
-        var filter_div = d3.select("#pills-filter");
+        var filter_div = d3.select("#employee_dropdown");
         filter_div.append("p").text("Choose one or more locations:");
         var select = filter_div.append('select')
             .attr('id','location-select')
@@ -100,7 +100,6 @@ d3.csv('data/cc_data.csv')
                 });
 
                 working_div.selectAll("*").remove();
-
                 if (lastLocationSelection.length == 0) {
                     var values = $('#person-select').val();
                     lastPersonSelection = values;
@@ -110,6 +109,16 @@ d3.csv('data/cc_data.csv')
                         // Draw first selected route
                         var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[0]]);
                         drawRoutes(filteredData);
+
+
+                        /*
+                        // Hoping this draws all selected people's routes
+                        for (i=0; i < values.length; i++){
+                            var filteredData = gpsData.filter(d => d.id == car_id_to_name[values[i]]);
+                            drawRoutes(filteredData);
+                        }
+                        */
+                        
 
                         values.forEach(function (val) {
                             $('[id="' + val + '-Loyalty-Per-Person"]').remove().insertAfter($('[id="' + val + '-Transactions-Per-Person"]'));
@@ -165,6 +174,7 @@ d3.csv('data/cc_data.csv')
                         d3.select('[id="' + val + '-Loyalty"]').style("display", "block");
                     });
                 }
+
             }
         });
 
@@ -409,7 +419,7 @@ d3.csv('data/cc_data.csv')
         d3.select("#person-select").property("selectedIndex", -1);
 
         // Create dropdown
-        var filter_div = d3.select("#pills-filter");
+        var filter_div = d3.select("#location_dropdown");
         filter_div.append("br");
         filter_div.append("br");
 
@@ -563,14 +573,12 @@ d3.csv('data/loyalty_data.csv')
         }
     });
 
-var filter_div = d3.select("#pills-filter");
+var filter_div = d3.select("#reset_btn");
 
 filter_div.append('button')
     .text('Reset Selections')
     .attr('id', 'reset_button')
-    .style('position', 'absolute')
-    .style('bottom', '200px')
-    .style('left', '20px')
+    .attr('class', 'btn btn-warning')
     .on('click', function(){
         $("#location-select").multiselect("clearSelection");
         $("#location-select").multiselect( 'refresh' );
