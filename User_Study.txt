@@ -1,0 +1,36 @@
+User Study
+
+Amanda Lube
+Joey 
+Josh
+
+Jennifer
+Qianyi Che
+David
+
+Overview:
+
+1. Explain you are an analyst
+2. Explain think-a-loud
+3. Have them read the user guide and explore the system before being assigned a task
+4. Give a task
+
+Tasks:
+
+1. Identify a pattern and show proof of the pattern using our system
+2. Identify a daily routine for A NUMBER of employees
+3. Identify the most commonly visited coffee shop/cafe in the morning
+
+How to get performance measures:
+
+1. Record screen with sound
+    1. Clicks
+    2. Time
+    3. Think-a-loud
+
+After user study:
+
+1. Open feedback
+2. Survey about satisfaction and effectiveness (Scale, Strongly Disagree to Strongly Agree)
+    1. The interface was easy to use.
+    2. Difficulty of each task (1-5)
